@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  
+<title>Little Italy Gastro Fest 2026 | Festival gastronómico italiano en Torremolinos</title>
+<meta name="description" content="Little Italy Gastro Fest llega a Torremolinos el 27 y 28 de agosto de 2026 con pizza al taglio, pasta fresca, aperitivos italianos, música en directo y ambiente mediterráneo.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #FFFDF8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; color: #1A201C; padding-bottom: 0; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes btnPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(209,82,53,0.6), 0 0 0 0 rgba(227,163,55,0.3); } 60% { box-shadow: 0 0 0 18px rgba(209,82,53,0), 0 0 0 36px rgba(227,163,55,0); } }
+@keyframes btnShimmer { 0% { background-position: -300% center; } 100% { background-position: 300% center; } }
+@keyframes photoCarousel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.btn-cta-anim { animation: btnPulse 2.4s ease-in-out infinite; }
+.btn-cta-anim:hover { transform: translateY(-3px) scale(1.025) !important; box-shadow: 0 12px 40px rgba(209,82,53,0.45) !important; animation: none !important; }
+.fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+a { text-decoration: none; color: inherit; }
+::placeholder { color: rgba(26,32,28,0.35); }
+input, textarea, select, button { font-family: 'Montserrat', sans-serif; }
+input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D !important; }
+.btn-r:hover { background: #b83a24 !important; transform: translateY(-2px); }
+.btn-g:hover { background: #325840 !important; }
+.nav-link:hover { color: #D15235 !important; }
+.card-hover:hover { transform: translateY(-4px); transition: transform 0.3s ease; }
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .hamburger-btn { display: flex !important; }
+  .hero-flex { flex-direction: column !important; }
+  .hero-left-col { width: 100% !important; padding: 80px 24px 48px !important; }
+  .hero-right-col { width: 100% !important; height: 72vw !important; min-height: 260px !important; max-height: 420px !important; }
+  .fest-flex { flex-direction: column !important; }
+  .fest-left-col { width: 100% !important; padding: 60px 24px !important; }
+  .fest-right-col { width: 100% !important; min-height: 260px !important; }
+  .cards-3 { grid-template-columns: 1fr !important; }
+  .cards-2x2 { grid-template-columns: 1fr !important; }
+  .contact-flex { flex-direction: column !important; }
+  .contact-form-col { width: 100% !important; }
+  .contact-info-col { width: 100% !important; }
+  .footer-flex { flex-direction: column !important; gap: 40px !important; }
+  .section-pad { padding: 60px 24px !important; }
+  .hero-h1 { font-size: clamp(64px, 19vw, 120px) !important; }
+  .section-h2 { font-size: clamp(36px, 9vw, 60px) !important; }
+  .two-col-form { grid-template-columns: 1fr !important; }
+  .menores-grid { grid-template-columns: 1fr !important; }
+}
+@media (min-width: 769px) {
+  .hamburger-btn { display: none !important; }
+  .mobile-overlay { display: none !important; }
+}
+</style>
+
+</head>
+<body>
+
+<template id="__bundler_thumbnail" data-bg-color="#1A201C">
+  <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="500" fill="#1A201C"/>
+    <text x="400" y="180" text-anchor="middle" font-family="serif" font-style="italic" font-size="52" fill="#406D4D">Little</text>
+    <text x="400" y="280" text-anchor="middle" font-family="serif" font-weight="900" font-size="130" fill="#D15235" letter-spacing="-4">ITALY</text>
+    <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="18" fill="#FFFDF8" letter-spacing="12">GASTRO FEST</text>
+    <text x="400" y="390" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#E3A337" letter-spacing="4">TORREMOLINOS · 27 Y 28 AGO 2026</text>
+  </svg>
+</template>
+
+<!-- HEADER FIJO -->
+<header id="main-header" style="position:fixed;top:0;left:0;right:0;z-index:100;height:72px;background:#FFFDF8;border-bottom:2px solid #1A201C;display:flex;align-items:center;justify-content:space-between;padding:0 40px;transition:box-shadow 0.3s;">
+  <a href="#inicio" style="display:flex;align-items:flex-end;gap:0;flex-shrink:0;text-decoration:none;line-height:1;padding-bottom:2px;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;">
+      <span style="font-family:'Dancing Script',cursive;font-weight:700;color:#406D4D;font-size:14px;display:block;line-height:1.15;">Little</span>
+      <span style="font-family:'Playfair Display',serif;font-weight:900;color:#D15235;font-size:28px;display:block;line-height:0.82;letter-spacing:-0.02em;">ITALY</span>
+      <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#1A201C;font-size:6.5px;display:block;letter-spacing:0.32em;text-transform:uppercase;margin-top:5px;">GASTRO FEST</span>
+    </div>
+  </a>
+  <nav class="nav-links" style="display:flex;gap:28px;align-items:center;">
+    <a href="#inicio" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#1A201C;transition:color 0.2s;">Inicio</a>
+    <a href="#festival" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#1A201C;transition:color 0.2s;">Festival</a>
+    <a href="#gastronomia" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#1A201C;transition:color 0.2s;">Gastronomía</a>
+    <a href="#entradas" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#1A201C;transition:color 0.2s;">Entradas</a>
+    <a href="#contacto" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#1A201C;transition:color 0.2s;">Contacto</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <a href="#entradas" class="btn-r" style="background:#D15235;color:#FFFDF8;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:11px 22px;display:inline-flex;align-items:center;transition:background 0.2s,transform 0.2s;white-space:nowrap;">Entradas</a>
+    <button class="hamburger-btn" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;align-items:center;display:none;" aria-label="Abrir menú">
+      <span style="display:block;width:24px;height:2px;background:#1A201C;"></span>
+      <span style="display:block;width:18px;height:2px;background:#1A201C;"></span>
+      <span style="display:block;width:24px;height:2px;background:#1A201C;"></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENÚ MÓVIL -->
+<div id="mobile-nav-overlay" class="mobile-overlay" style="display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:#1A201C;z-index:99;flex-direction:column;padding:32px 32px 40px;gap:0px;overflow-y:auto;">
+  <a href="#inicio" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFDF8;padding:16px 0;border-bottom:1px solid rgba(255,253,248,0.08);">Inicio</a>
+  <a href="#festival" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFDF8;padding:16px 0;border-bottom:1px solid rgba(255,253,248,0.08);">Festival</a>
+  <a href="#gastronomia" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFDF8;padding:16px 0;border-bottom:1px solid rgba(255,253,248,0.08);">Gastronomía</a>
+  <a href="#entradas" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFDF8;padding:16px 0;border-bottom:1px solid rgba(255,253,248,0.08);">Entradas</a>
+  <a href="#contacto" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFDF8;padding:16px 0;border-bottom:1px solid rgba(255,253,248,0.08);">Contacto</a>
+  <div style="margin-top:auto;padding-top:32px;">
+    <a href="#entradas" onclick="closeMenu()" class="btn-r" style="display:flex;align-items:center;justify-content:center;background:#D15235;color:#FFFDF8;font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:0.1em;text-transform:uppercase;padding:22px;transition:background 0.2s;">Entradas</a>
+  </div>
+</div>
+
+<main style="padding-top:72px;">
+
+  <!-- ============================================================ -->
+  <!-- HERO                                                          -->
+  <!-- ============================================================ -->
+  <section id="inicio" data-screen-label="Inicio / Hero" style="background:#1A201C;position:relative;overflow:hidden;">
+    <div class="hero-flex" style="display:flex;align-items:stretch;min-height:calc(100vh - 72px);">
+
+      <!-- LEFT: Texto -->
+      <div class="hero-left-col" style="width:52%;padding:80px 56px 80px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;">
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;">
+          <div style="width:28px;height:2px;background:#D15235;flex-shrink:0;"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#E3A337;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">Torremolinos · Plaza de Toros · Verano 2026</span>
+        </div>
+
+        <div style="margin-bottom:28px;line-height:1;">
+          <div style="font-family:'Dancing Script',cursive;font-weight:700;color:#406D4D;font-size:clamp(26px,3.2vw,48px);line-height:1.1;margin-bottom:-2px;">Little</div>
+          <div class="hero-h1" style="font-family:'Playfair Display',serif;font-weight:900;color:#D15235;font-size:clamp(80px,10.5vw,148px);line-height:0.83;letter-spacing:-0.03em;text-transform:uppercase;">ITALY</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;color:#FFFDF8;font-size:clamp(12px,1.5vw,22px);letter-spacing:0.42em;text-transform:uppercase;margin-top:8px;">GASTRO FEST</div>
+        </div>
+
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:#D7B991;font-size:clamp(16px,1.9vw,24px);text-transform:uppercase;letter-spacing:0.06em;line-height:1.25;margin-bottom:12px;">La gran fiesta mediterránea del verano.</p>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:rgba(215,185,145,0.75);font-size:clamp(13px,1.2vw,16px);line-height:1.75;margin-bottom:36px;max-width:420px;">Pizza al taglio, pasta fresca, Aperol Spritz, música en directo y mucho ambiente italiano.</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;">
+          <div style="background:#E3A337;padding:8px 16px;transform:rotate(-1.5deg);display:inline-block;">
+            <div style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:17px;text-transform:uppercase;letter-spacing:0.04em;">27 y 28 AGO 2026</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(26,32,28,0.6);text-transform:uppercase;letter-spacing:0.12em;margin-top:1px;">Dos noches</div>
+          </div>
+          <div style="border:1px solid rgba(215,185,145,0.2);padding:8px 16px;display:inline-block;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;color:#FFFDF8;font-size:17px;">Plaza Paraíso · Plaza de Toros</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(215,185,145,0.5);text-transform:uppercase;letter-spacing:0.12em;margin-top:1px;">Torremolinos, Málaga</div>
+          </div>
+          <div style="border:1px solid rgba(215,185,145,0.2);padding:8px 16px;display:inline-block;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;color:#FFFDF8;font-size:17px;">19:00 — 02:00 h</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(215,185,145,0.5);text-transform:uppercase;letter-spacing:0.12em;margin-top:1px;">Cada jornada</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="#entradas" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(100deg,#D15235 0%,#c4461f 40%,#E3A337 60%,#D15235 100%);background-size:300% auto;color:#FFFDF8;font-family:'Montserrat',sans-serif;font-weight:900;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;padding:18px 36px;text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;white-space:nowrap;">
+          <span style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.18) 50%,transparent 65%);background-size:300% auto;animation:btnShimmer 3s linear infinite;pointer-events:none;"></span>
+          <svg width="16" height="11" viewBox="0 0 20 14" fill="none" style="flex-shrink:0;position:relative;z-index:1;"><path d="M1 7h18M12 1l6 6-6 6" stroke="#FFFDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="position:relative;z-index:1;">Entradas</span>
+          <svg width="16" height="11" viewBox="0 0 20 14" fill="none" style="flex-shrink:0;position:relative;z-index:1;"><path d="M19 7H1M8 1L2 7l6 6" stroke="#FFFDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+          <a href="#gastronomia" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#FFFDF8;border:2px solid rgba(215,185,145,0.3);font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.1em;text-transform:uppercase;padding:18px 40px;transition:border-color 0.2s,background 0.2s;white-space:nowrap;">Ver propuesta gastro</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Cartel + Stickers -->
+      <div class="hero-right-col" style="width:48%;position:relative;overflow:hidden;">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:100px;background:linear-gradient(to right,#1A201C,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;inset:0;background:#A8CDD8;display:flex;align-items:center;justify-content:center;padding:24px 24px 24px 60px;">
+          <img src="imgs/cartel.png" alt="Cartel oficial Little Italy Gastro Fest Torremolinos 2026" style="max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 12px 56px rgba(0,0,0,0.5));">
+        </div>
+        <!-- Sticker: No es una cena -->
+        <div style="position:absolute;top:24px;right:24px;z-index:4;transform:rotate(8deg);filter:drop-shadow(2px 4px 10px rgba(0,0,0,0.35));">
+          <svg viewBox="0 0 130 130" width="108" height="108">
+            <circle cx="65" cy="65" r="60" fill="#E3A337" stroke="#1A201C" stroke-width="3.5"></circle>
+            <circle cx="65" cy="65" r="51" fill="none" stroke="#1A201C" stroke-width="1.5" stroke-dasharray="4 3"></circle>
+            <text text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="12" fill="#1A201C">
+              <tspan x="65" y="47">NO ES</tspan>
+              <tspan x="65" dy="16">UNA CENA.</tspan>
+              <tspan x="65" dy="16">ES UN PLAN.</tspan>
+            </text>
+          </svg>
+        </div>
+        <!-- Sello: Cucina Italiana di Strada -->
+        <div style="position:absolute;bottom:36px;right:20px;z-index:4;transform:rotate(-6deg);filter:drop-shadow(2px 4px 10px rgba(0,0,0,0.3));">
+          <svg viewBox="0 0 130 130" width="96" height="96">
+            <circle cx="65" cy="65" r="60" fill="#FFFDF8" stroke="#406D4D" stroke-width="3.5"></circle>
+            <circle cx="65" cy="65" r="52" fill="none" stroke="#406D4D" stroke-width="1.5"></circle>
+            <defs>
+              <path id="arcTop" d="M 14,65 A 51,51 0 0,1 116,65"></path>
+            </defs>
+            <text font-family="Montserrat,sans-serif" font-weight="800" font-size="9.5" fill="#406D4D" letter-spacing="1.5">
+              <textPath href="#arcTop" startOffset="50%" text-anchor="middle">CUCINA ITALIANA · DI STRADA</textPath>
+            </text>
+            <text x="65" y="60" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="17" fill="#406D4D">★</text>
+            <text x="65" y="80" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="9" fill="#406D4D">LITTLE ITALY</text>
+          </svg>
+        </div>
+        <!-- Sticker: Street Food -->
+        <div style="position:absolute;top:160px;right:16px;z-index:4;transform:rotate(-10deg);filter:drop-shadow(1px 3px 8px rgba(0,0,0,0.3));">
+          <div style="background:#D15235;padding:7px 14px;border:2px solid #1A201C;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:900;color:#FFFDF8;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap;">STREET FOOD</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TICKER                                                        -->
+  <!-- ============================================================ -->
+  <div style="background:#E3A337;overflow:hidden;white-space:nowrap;padding:13px 0;border-top:2px solid #1A201C;position:fixed;bottom:0;left:0;right:0;z-index:98;">
+    <div style="display:inline-flex;animation:ticker 42s linear infinite;will-change:transform;">
+      <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:#1A201C;text-transform:uppercase;letter-spacing:0.09em;padding-right:72px;">Pizza al taglio &nbsp;·&nbsp; Pasta fresca &nbsp;·&nbsp; Aperol Spritz &nbsp;·&nbsp; Música en directo &nbsp;·&nbsp; La Dolce Vita Mediterránea &nbsp;·&nbsp; Cannoli &nbsp;·&nbsp; Shows en vivo &nbsp;·&nbsp; Sorteo de 2 viajes a Roma &nbsp;·&nbsp; Comer. Brindar. Celebrar.</span>
+      <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:#1A201C;text-transform:uppercase;letter-spacing:0.09em;padding-right:72px;">Pizza al taglio &nbsp;·&nbsp; Pasta fresca &nbsp;·&nbsp; Aperol Spritz &nbsp;·&nbsp; Música en directo &nbsp;·&nbsp; La Dolce Vita Mediterránea &nbsp;·&nbsp; Cannoli &nbsp;·&nbsp; Shows en vivo &nbsp;·&nbsp; Sorteo de 2 viajes a Roma &nbsp;·&nbsp; Comer. Brindar. Celebrar.</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- EL FESTIVAL                                                   -->
+  <!-- ============================================================ -->
+  <section id="festival" data-screen-label="El Festival" style="background:#FFFDF8;overflow:hidden;">
+    <div class="fest-flex" style="display:flex;align-items:stretch;min-height:82vh;">
+
+      <div class="fest-left-col" style="width:56%;padding:100px 72px 100px 80px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;" class="fade-in">
+          <div style="width:28px;height:2px;background:#D15235;flex-shrink:0;"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#D15235;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">El Festival</span>
+        </div>
+        <h2 class="section-h2 fade-in" style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:clamp(44px,5.8vw,80px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:36px;">Dos noches<br>para vivir<br><span style="color:#D15235;">a la italiana.</span></h2>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:#1A201C;font-size:17px;line-height:1.8;margin-bottom:20px;max-width:500px;" class="fade-in">Durante dos jornadas de verano, la Plaza de Toros de Torremolinos se transforma en una gran piazza mediterránea donde la gastronomía italiana, la música en directo y el espectáculo se unen para celebrar el placer de vivir sin prisa.</p>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:#1A201C;font-size:17px;line-height:1.8;margin-bottom:40px;max-width:500px;" class="fade-in">Little Italy Gastro Fest no es solo un festival de comida italiana. Es una celebración del placer mediterráneo de comer bien, brindar con quien quieres y disfrutar una noche que no tienes ganas de que termine.</p>
+        <div style="display:inline-block;background:#1A201C;padding:18px 28px;transform:rotate(-1deg);" class="fade-in">
+          <p style="font-family:'Montserrat',sans-serif;font-weight:800;color:#E3A337;font-size:22px;text-transform:uppercase;letter-spacing:0.05em;line-height:1.2;">Ven con hambre de verano.</p>
+        </div>
+      </div>
+
+      <div class="fest-right-col" style="width:44%;position:relative;overflow:hidden;">
+        <img src="imgs/verbena.jpg" alt="Ambiente nocturno de festival italiano con luces de verbena" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,#FFFDF8 0%,transparent 20%);pointer-events:none;"></div>
+      </div>
+
+    </div>
+  <!-- Transición suave -->
+  <div style="height:80px;background:linear-gradient(to bottom,#FFFDF8,#1A201C);"></div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- QUÉ VAS A ENCONTRAR                                           -->
+  <!-- ============================================================ -->
+  <section data-screen-label="Qué vas a encontrar" style="background:#1A201C;overflow:hidden;">
+    <div class="section-pad" style="padding:100px 80px;">
+      <div style="text-align:center;margin-bottom:64px;" class="fade-in">
+        <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:28px;height:1px;background:#E3A337;"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#E3A337;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">Qué vas a encontrar</span>
+          <div style="width:28px;height:1px;background:#E3A337;"></div>
+        </div>
+        <h2 class="section-h2" style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:clamp(38px,5.5vw,72px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;">En Little Italy<br><span style="color:#D15235;">Gastro Fest</span></h2>
+      </div>
+
+      <div class="cards-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+        <div style="position:relative;overflow:hidden;height:480px;" class="fade-in card-hover">
+          <img src="imgs/PASTA_1.jpg" alt="Ambiente festivo en La Piazza" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,32,28,0.97) 32%,rgba(26,32,28,0.45) 55%,rgba(26,32,28,0) 80%),linear-gradient(to bottom,rgba(26,32,28,0.6) 0%,rgba(26,32,28,0) 25%);"></div>
+          <div style="position:absolute;top:28px;left:28px;background:#E3A337;padding:5px 12px;transform:rotate(-1.5deg);">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">El corazón de la noche</span>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:28px;">
+            <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:44px;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;margin-bottom:12px;">La Piazza</h3>
+            <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.75);line-height:1.65;">Un espacio diseñado para quedarse. Iluminación cálida, música en directo, gastronomía italiana y cócteles icónicos en Plaza Paraíso.</p>
+          </div>
+        </div>
+
+        <div style="position:relative;overflow:hidden;height:480px;" class="fade-in card-hover">
+          <img src="imgs/TIRAMISU_1.jpg" alt="La Nonna - hospitalidad italiana del festival" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,32,28,0.97) 32%,rgba(26,32,28,0.45) 55%,rgba(26,32,28,0) 80%),linear-gradient(to bottom,rgba(26,32,28,0.6) 0%,rgba(26,32,28,0) 25%);"></div>
+          <div style="position:absolute;top:28px;left:28px;background:#406D4D;padding:5px 12px;transform:rotate(1.5deg);">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Tradición · Hospitalidad</span>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:28px;">
+            <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:44px;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;margin-bottom:12px;">La Nonna</h3>
+            <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.75);line-height:1.65;">El alma del festival. La anfitriona que hace que te sientas bienvenido desde el primer momento y que volverás a buscar.</p>
+          </div>
+        </div>
+
+        <div style="position:relative;overflow:hidden;height:480px;" class="fade-in card-hover">
+          <img src="imgs/GELATO_1.jpg" alt="La Dolce Vita Mediterránea en el festival" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,32,28,0.97) 32%,rgba(26,32,28,0.45) 55%,rgba(26,32,28,0) 80%),linear-gradient(to bottom,rgba(26,32,28,0.6) 0%,rgba(26,32,28,0) 25%);"></div>
+          <div style="position:absolute;top:28px;left:28px;background:#D15235;padding:5px 12px;transform:rotate(-1deg);">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Comer · Brindar · Celebrar</span>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:28px;">
+            <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:38px;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;margin-bottom:12px;">La Dolce Vita<br>Mediterránea</h3>
+            <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.75);line-height:1.65;">Gastronomía, música, espectáculo y sorpresas. Para salir con una sola sensación: qué ganas de volver.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- GASTRONOMÍA                                                   -->
+  <!-- ============================================================ -->
+  <section id="gastronomia" data-screen-label="Gastronomía">
+
+    <div class="section-pad" style="padding:100px 80px 56px;background:#FFFDF8;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;" class="fade-in">
+        <div style="width:28px;height:2px;background:#D15235;flex-shrink:0;"></div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#D15235;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">Propuesta Gastronómica</span>
+      </div>
+      <div style="display:flex;align-items:flex-end;gap:48px;flex-wrap:wrap;" class="fade-in">
+        <h2 class="section-h2" style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:clamp(44px,5.8vw,80px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;">La cocina<br>de las nonnas.</h2>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:#1A201C;font-size:17px;line-height:1.75;max-width:420px;padding-bottom:6px;">No es alta cocina. No es fusión. Es comida italiana reconocible, bien hecha, en un formato ágil y de calidad.</p>
+      </div>
+    </div>
+
+    <!-- 2×2 GRID -->
+    <div class="cards-2x2" style="display:grid;grid-template-columns:1fr 1fr;">
+
+      <!-- Card 1: La Barra de la Nonna -->
+      <div style="position:relative;overflow:hidden;min-height:540px;" class="fade-in">
+        <img src="imgs/PANINI_1.jpg" alt="Paninis artesanales en La Barra de la Nonna" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(26,32,28,0.88) 0%,rgba(26,32,28,0.38) 100%);"></div>
+        <div style="position:absolute;top:44px;left:44px;background:#E3A337;padding:6px 14px;transform:rotate(-2deg);">
+          <span style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">NONNA APPROVED</span>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:44px;">
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(215,185,145,0.6);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;display:block;margin-bottom:8px;">Barra Gastronómica</span>
+          <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:48px;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em;margin-bottom:16px;">La Barra<br>de la Nonna</h3>
+          <p style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.8);line-height:1.65;margin-bottom:20px;max-width:300px;">La barra donde degustar la comida de la Nonna.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.7);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#D15235;flex-shrink:0;display:block;border-radius:50%;"></span>Pasta fresca en varios formatos con sus salsas</li>
+            <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.7);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#D15235;flex-shrink:0;display:block;border-radius:50%;"></span>Paninis elaborados con focaccia artesanal</li>
+            <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.7);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#D15235;flex-shrink:0;display:block;border-radius:50%;"></span>Tablas de quesos y embutidos italianos al corte</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: La Pizza -->
+      <div style="background:#D15235;min-height:540px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:44px;" class="fade-in">
+        <div style="position:absolute;bottom:-10px;right:-10px;font-family:'Playfair Display',serif;font-weight:900;font-size:240px;color:rgba(26,32,28,0.1);line-height:1;letter-spacing:-0.05em;text-transform:uppercase;pointer-events:none;user-select:none;z-index:0;">PIZZA</div>
+        <div style="position:absolute;inset:0;overflow:hidden;z-index:0;">
+          <img src="imgs/PASTA_3.jpg" alt="" aria-hidden="true" style="width:55%;height:100%;object-fit:cover;object-position:center;opacity:0.18;position:absolute;right:0;top:0;">
+        </div>
+        <div style="position:absolute;top:44px;left:44px;background:#1A201C;padding:6px 14px;transform:rotate(1.5deg);z-index:2;">
+          <span style="font-family:'Playfair Display',serif;font-weight:900;color:#E3A337;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">HOT SLICE</span>
+        </div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(255,253,248,0.55);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;display:block;margin-bottom:8px;position:relative;z-index:2;">Food Trucks · Pizza al Taglio</span>
+        <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:48px;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em;margin-bottom:16px;position:relative;z-index:2;">La Pizza</h3>
+        <p style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(255,253,248,0.85);line-height:1.65;margin-bottom:20px;max-width:280px;position:relative;z-index:2;">La pizza italiana no podía faltar. Por porciones, con masa de verdad e ingredientes que hablan de Italia.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;position:relative;z-index:2;">
+          <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.8);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Pizza al taglio con variedades en rotación</li>
+          <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.8);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Masa artesana e ingredientes italianos de origen</li>
+        </ul>
+      </div>
+
+      <!-- Card 3: Dolce Italia -->
+      <div style="background:#1A201C;min-height:540px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:44px;" class="fade-in">
+        <img src="imgs/CANNOLI_1.jpg" alt="Cannoli sicilianos en Dolce Italia" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.55;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,32,28,0.96) 35%,rgba(26,32,28,0.1) 100%);"></div>
+        <div style="position:absolute;top:44px;right:44px;background:#FFFDF8;padding:6px 14px;transform:rotate(2deg);">
+          <span style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">DOLCE</span>
+        </div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(215,185,145,0.6);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;display:block;margin-bottom:8px;position:relative;z-index:1;">Zona Dulce</span>
+        <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:48px;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em;margin-bottom:16px;position:relative;z-index:1;">Dolce Italia</h3>
+        <p style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.8);line-height:1.65;margin-bottom:20px;max-width:300px;position:relative;z-index:1;">Porque una gran noche italiana no termina sin dulce. Los clásicos elaborados con criterio y sin atajos.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;position:relative;z-index:1;">
+          <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.7);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Tiramisú artesanal</li>
+          <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.7);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Cannoli sicilianos</li>
+          <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.7);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Helados artesanales italianos</li>
+        </ul>
+      </div>
+
+      <!-- Card 4: El Aperitivo de Hugo -->
+      <div style="position:relative;overflow:hidden;min-height:540px;" class="fade-in">
+        <img src="imgs/APEROL.jpg" alt="Aperol Spritz preparado en El Aperitivo de Hugo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(115,140,137,0.92) 0%,rgba(115,140,137,0.42) 100%);"></div>
+        <div style="position:absolute;top:44px;right:44px;background:#E3A337;padding:6px 14px;transform:rotate(-2deg);">
+          <span style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">APERITIVO TIME</span>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:44px;">
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(255,253,248,0.65);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;display:block;margin-bottom:8px;">Coctelería · El Ritual del Aperitivo</span>
+          <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:48px;text-transform:uppercase;line-height:0.88;letter-spacing:-0.01em;margin-bottom:16px;">El Aperitivo<br>de Hugo</h3>
+          <p style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(255,253,248,0.85);line-height:1.65;margin-bottom:20px;max-width:290px;">El aperitivo no es una bebida. Es el momento en que decides que la noche empieza de verdad.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.8);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Aperol Spritz · Campari</li>
+            <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.8);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Vermut italiano</li>
+            <li style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(255,253,248,0.8);display:flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;background:#E3A337;flex-shrink:0;display:block;border-radius:50%;"></span>Bebidas italianas y cócteles de temporada</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Gastro -->
+    <div style="background:#406D4D;padding:72px 80px;text-align:center;" class="fade-in">
+      <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(215,185,145,0.65);font-size:13px;letter-spacing:0.28em;text-transform:uppercase;margin-bottom:14px;">¿Vienes a descubrirlo?</p>
+      <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:clamp(28px,4vw,52px);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.92;margin-bottom:36px;">Cada zona, su momento.<br>Una sola noche no será suficiente.</h3>
+
+    <!-- ═══ CARRUSEL DE FOTOS ═══════════════════════════════════════
+         Añade aquí tus divs con imágenes. Estructura de cada foto:
+         <div style="flex-shrink:0;width:190px;height:240px;overflow:hidden;transform:rotate(1deg);box-shadow:0 8px 32px rgba(0,0,0,0.35);">
+           <img src="imgs/TU_IMAGEN.jpg" alt="descripción" style="width:100%;height:100%;object-fit:cover;">
+         </div>
+         Duplica el bloque completo (x2) para loop seamless.
+    ═══════════════════════════════════════════════════════════════ -->
+    <div style="position:relative;overflow:hidden;height:260px;margin-top:56px;width:100%;">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:140px;background:linear-gradient(to right,#406D4D 30%,transparent);z-index:2;pointer-events:none;"></div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:140px;background:linear-gradient(to left,#406D4D 30%,transparent);z-index:2;pointer-events:none;"></div>
+      <div id="carrusel-strip" style="display:inline-flex;gap:14px;animation:photoCarousel 38s linear infinite;will-change:transform;align-items:center;height:100%;padding:10px 0;">
+        <!-- AÑADE AQUÍ TUS FOTOS (duplicadas x2 para loop seamless) -->
+      </div>
+    </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ENTRADAS                                                      -->
+  <!-- ============================================================ -->
+  <section id="entradas" data-screen-label="Entradas" style="background:#1A201C;">
+    <div class="section-pad" style="padding:100px 80px;">
+
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;" class="fade-in">
+        <div style="width:28px;height:2px;background:#D15235;flex-shrink:0;"></div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#D15235;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">Entradas</span>
+      </div>
+
+      <h2 class="section-h2 fade-in" style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:clamp(44px,5.8vw,80px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:32px;">Elige tu<br><span style="color:#D15235;">noche italiana.</span></h2>
+
+      <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:rgba(215,185,145,0.75);font-size:17px;line-height:1.8;max-width:660px;margin-bottom:16px;" class="fade-in">Dos jornadas, un mismo espíritu. Pizza al taglio, pasta fresca, aperitivos italianos, música en directo, shows que no te esperas y el sorteo de un viaje a Italia para 2 personas.</p>
+      <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:rgba(215,185,145,0.75);font-size:17px;line-height:1.8;max-width:660px;margin-bottom:48px;" class="fade-in">El 27 y el 28 de agosto de 2026, la Plaza de Toros de Torremolinos se convierte en la piazza más animada del verano. Puedes venir una noche o quedarte con las dos. Lo único que no recomendamos es no venir.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px;" class="fade-in">
+        <div style="border:1px solid rgba(215,185,145,0.18);padding:16px 24px;">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#E3A337;font-size:22px;margin-bottom:3px;">27 y 28 AGO 2026</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(215,185,145,0.5);text-transform:uppercase;letter-spacing:0.12em;">Dos jornadas</div>
+        </div>
+        <div style="border:1px solid rgba(215,185,145,0.18);padding:16px 24px;">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:22px;margin-bottom:3px;">19:00 — 02:00 h</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(215,185,145,0.5);text-transform:uppercase;letter-spacing:0.12em;">Cada jornada</div>
+        </div>
+        <div style="border:1px solid rgba(215,185,145,0.18);padding:16px 24px;">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:22px;margin-bottom:3px;">Plaza de Toros · Torremolinos</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(215,185,145,0.5);text-transform:uppercase;letter-spacing:0.12em;">Recinto</div>
+        </div>
+        <div style="border:1px solid rgba(215,185,145,0.18);padding:16px 24px;">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:22px;margin-bottom:3px;">Acceso + Gastronomía + Shows</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(215,185,145,0.5);text-transform:uppercase;letter-spacing:0.12em;">Tu entrada incluye</div>
+        </div>
+      </div>
+
+      <div style="display:inline-flex;align-items:center;gap:12px;background:#D15235;padding:13px 24px;margin-bottom:52px;" class="fade-in">
+        <div style="width:8px;height:8px;background:#E3A337;border-radius:50%;flex-shrink:0;animation:none;"></div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;color:#FFFDF8;font-size:16px;letter-spacing:0.08em;text-transform:uppercase;">Aforo limitado. Las entradas anticipadas se agotan.</span>
+      </div>
+
+      <!-- Ticketing placeholder -->
+      <!-- CTA Entradas animado -->
+      <div style="margin-top:8px;text-align:center;" class="fade-in">
+        <a href="#entradas" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(100deg,#D15235 0%,#c4461f 40%,#E3A337 60%,#D15235 100%);background-size:300% auto;color:#FFFDF8;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:0.14em;text-transform:uppercase;padding:clamp(18px,2.5vw,26px) clamp(40px,6vw,80px);text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;cursor:pointer;">
+          <!-- Shimmer layer -->
+          <span style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.18) 50%,transparent 65%);background-size:300% auto;animation:btnShimmer 3s linear infinite;pointer-events:none;"></span>
+          <!-- Arrow left decorative -->
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none" style="flex-shrink:0;position:relative;z-index:1;"><path d="M1 7h18M12 1l6 6-6 6" stroke="#FFFDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span style="position:relative;z-index:1;">Consigue tus entradas</span>
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none" style="flex-shrink:0;position:relative;z-index:1;"><path d="M19 7H1M8 1L2 7l6 6" stroke="#FFFDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(215,185,145,0.4);margin-top:16px;letter-spacing:0.1em;text-transform:uppercase;">Acceso al recinto · Gastronomía · Música · Shows</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- POLÍTICA DE MENORES                                           -->
+  <!-- ============================================================ -->
+  <section data-screen-label="Política de Menores" style="background:#D7B991;">
+    <div class="section-pad" style="padding:80px 80px;">
+
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;" class="fade-in">
+        <div style="width:28px;height:2px;background:#1A201C;flex-shrink:0;"></div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#1A201C;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">Política de Menores</span>
+      </div>
+
+      <h2 class="fade-in" style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:clamp(32px,4.2vw,56px);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.9;margin-bottom:36px;">Política de Menores</h2>
+
+      <div style="display:inline-block;background:#1A201C;padding:14px 24px;margin-bottom:44px;transform:rotate(-0.5deg);" class="fade-in">
+        <span style="font-family:'Playfair Display',serif;font-weight:900;color:#E3A337;font-size:22px;text-transform:uppercase;letter-spacing:0.06em;">MENORES: Gratuito hasta los 12 años</span>
+      </div>
+
+      <div class="menores-grid fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:44px;">
+        <div style="background:rgba(26,32,28,0.09);padding:32px;">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:22px;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:14px;line-height:1;">Menores de 16 años</div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:15px;color:#1A201C;line-height:1.75;">Podrán acceder al evento siempre que vengan acompañados por padre, madre o tutor legal, o en su defecto de un adulto responsable, siempre y cuando presenten la autorización cumplimentada por su padre, madre o tutor legal.</p>
+        </div>
+        <div style="background:rgba(26,32,28,0.09);padding:32px;">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:22px;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:14px;line-height:1;">Desde los 16 años</div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:15px;color:#1A201C;line-height:1.75;">Podrán acceder sin necesidad de ir acompañados de un adulto. Se podrá requerir documentación (DNI original) para acreditar la edad, y deberán presentar la autorización cumplimentada por padre, madre o tutor legal.</p>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <a href="#pendiente-pdf-menores" style="display:inline-flex;align-items:center;gap:12px;background:#1A201C;color:#FFFDF8;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;padding:18px 32px;transition:background 0.2s;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1v9M3.5 7l4 4 4-4M1.5 13.5h12" stroke="#FFFDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Descargar autorización
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACTO                                                      -->
+  <!-- ============================================================ -->
+  <section id="contacto" data-screen-label="Contacto" style="background:#FFFDF8;">
+    <div class="section-pad" style="padding:100px 80px;">
+
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;" class="fade-in">
+        <div style="width:28px;height:2px;background:#D15235;flex-shrink:0;"></div>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;color:#D15235;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;">Contacto</span>
+      </div>
+      <h2 class="section-h2 fade-in" style="font-family:'Playfair Display',serif;font-weight:900;color:#1A201C;font-size:clamp(44px,5.8vw,80px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:14px;">Hablamos.</h2>
+      <p style="font-family:'Montserrat',sans-serif;font-size:17px;color:#1A201C;line-height:1.75;max-width:500px;margin-bottom:64px;" class="fade-in">Para prensa, patrocinios, grupos o cualquier otra consulta sobre el festival, escríbenos. Respondemos rápido.</p>
+
+      <div class="contact-flex" style="display:flex;gap:72px;align-items:flex-start;">
+
+        <div class="contact-form-col" style="flex:1;">
+          <form style="display:flex;flex-direction:column;gap:22px;" onsubmit="handleSubmit(event)">
+            <div class="two-col-form" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <label for="nombre" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Nombre *</label>
+                <input id="nombre" type="text" name="nombre" required="" placeholder="Tu nombre" style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;transition:border-color 0.2s;width:100%;">
+              </div>
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <label for="email" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Correo electrónico *</label>
+                <input id="email" type="email" name="email" required="" placeholder="tu@email.com" style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;transition:border-color 0.2s;width:100%;">
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="motivo" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Motivo de contacto *</label>
+              <select id="motivo" name="motivo" required="" style="border:2px solid #1A201C;background:#FFFDF8;padding:15px 16px;font-size:15px;color:#1A201C;appearance:none;cursor:pointer;transition:border-color 0.2s;width:100%;">
+                <option value="" disabled="" selected="">Selecciona un motivo</option>
+                <option value="patrocinio">Patrocinio o colaboración</option>
+                <option value="prensa">Prensa y medios</option>
+                <option value="grupos">Entradas para grupos</option>
+                <option value="general">Consulta general</option>
+              </select>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <label for="mensaje" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" required="" rows="5" placeholder="Escribe tu mensaje aquí..." style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;resize:vertical;transition:border-color 0.2s;width:100%;"></textarea>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <input type="checkbox" id="privacidad" required="" style="width:18px;height:18px;margin-top:3px;accent-color:#406D4D;flex-shrink:0;cursor:pointer;">
+              <label for="privacidad" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#1A201C;line-height:1.6;cursor:pointer;">He leído y acepto la <a href="#pendiente-privacidad" style="color:#406D4D;text-decoration:underline;text-underline-offset:3px;">Política de Privacidad</a>.</label>
+            </div>
+            <div>
+              <button type="submit" class="btn-r" style="background:#D15235;color:#FFFDF8;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;letter-spacing:0.12em;text-transform:uppercase;padding:20px 56px;border:none;cursor:pointer;transition:background 0.2s,transform 0.2s;">Enviar mensaje</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-info-col" style="width:340px;flex-shrink:0;">
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:8px;">Email</div>
+            <a href="mailto:hola@somosgastronomico.com" style="font-family:'Montserrat',sans-serif;font-size:16px;color:#1A201C;text-decoration:underline;text-underline-offset:3px;">hola@somosgastronomico.com</a>
+          </div>
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:8px;">Instagram</div>
+            <a href="https://instagram.com/littleitaly_gastrofest" target="_blank" rel="noopener noreferrer" style="font-family:'Montserrat',sans-serif;font-size:16px;color:#406D4D;">@littleitaly_gastrofest</a>
+          </div>
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:8px;">Ubicación</div>
+            <p style="font-family:'Montserrat',sans-serif;font-size:15px;color:#1A201C;line-height:1.75;">Plaza de Toros de Torremolinos<br>C/ de la Nogalera, s/n<br>29620 Torremolinos, Málaga</p>
+          </div>
+          <!-- Mapa placeholder -->
+          <div style="background:#EBE8E2;border:2px solid #1A201C;height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C9.03 2 5 6.03 5 11c0 7.5 9 16 9 16s9-8.5 9-16c0-4.97-4.03-9-9-9zm0 12a3 3 0 110-6 3 3 0 010 6z" fill="#738C89"></path></svg>
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#738C89;">Google Maps próximamente</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                         -->
+<!-- ============================================================ -->
+<footer style="background:#1A201C;padding-bottom:52px;">
+  <div class="section-pad" style="padding:80px 80px 40px;">
+
+    <div class="footer-flex" style="display:flex;gap:56px;align-items:flex-start;margin-bottom:56px;">
+
+      <div style="flex:1;">
+        <div style="margin-bottom:18px;line-height:1;">
+          <div style="font-family:'Dancing Script',cursive;font-weight:700;color:#406D4D;font-size:18px;margin-bottom:-2px;">Little</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#D15235;font-size:56px;line-height:0.83;letter-spacing:-0.03em;">ITALY</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(255,253,248,0.4);font-size:11px;letter-spacing:0.38em;text-transform:uppercase;margin-top:6px;">GASTRO FEST</div>
+        </div>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(215,185,145,0.55);font-size:15px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">La gran fiesta mediterránea del verano.</p>
+        <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.35);">27 y 28 de agosto de 2026 · Torremolinos · Plaza de Toros</p>
+      </div>
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:18px;">Contacto</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a href="mailto:hola@somosgastronomico.com" style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.65);transition:color 0.2s;">hola@somosgastronomico.com</a>
+          <a href="https://instagram.com/littleitaly_gastrofest" target="_blank" rel="noopener noreferrer" style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.65);transition:color 0.2s;">@littleitaly_gastrofest</a>
+          <a href="#contacto" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#D15235;transition:opacity 0.2s;">Ir a contacto →</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:18px;">Navegación</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#inicio" style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.55);">Inicio</a>
+          <a href="#festival" style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.55);">El Festival</a>
+          <a href="#gastronomia" style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.55);">Gastronomía</a>
+          <a href="#entradas" style="font-family:'Montserrat',sans-serif;font-size:14px;color:rgba(215,185,145,0.55);">Entradas</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:18px;">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#pendiente-aviso-legal" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Aviso legal</a>
+          <a href="#pendiente-privacidad" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Política de privacidad</a>
+          <a href="#pendiente-cookies" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Política de cookies</a>
+          <a href="#pendiente-condiciones-compra" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Condiciones de compra</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="border-top:1px solid rgba(215,185,145,0.1);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(215,185,145,0.28);">© 2026 Little Italy Gastro Fest</p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(215,185,145,0.2);">GastronÓmico · Conceptualización y creación de universos gastronómicos</p>
+    </div>
+
+  </div>
+</footer>
+
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileOpen: false };
+
+  renderVals() {
+    const open = this.state.mobileOpen;
+    return {
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      closeMobile: () => this.setState({ mobileOpen: false }),
+      mobileNavStyle: {
+        position: 'fixed',
+        top: '72px',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: '#1A201C',
+        zIndex: 99,
+        flexDirection: 'column',
+        padding: '32px 32px 40px',
+        gap: '0px',
+        overflowY: 'auto',
+        display: open ? 'flex' : 'none',
+      },
+      handleFormSubmit: (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        if (btn) {
+          btn.textContent = 'Mensaje enviado';
+          btn.style.background = '#406D4D';
+          setTimeout(() => {
+            btn.textContent = 'Enviar mensaje';
+            btn.style.background = '#D15235';
+            e.target.reset();
+          }, 3000);
+        }
+      }
+    };
+  }
+
+  componentDidMount() {
+    // Sombra en header al hacer scroll
+    const header = document.getElementById('main-header');
+    const onScroll = () => {
+      if (!header) return;
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 2px 28px rgba(26,32,28,0.13)'
+        : 'none';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Fade-in con IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Cerrar menú móvil al hacer click en overlay oscuro
+    document.addEventListener('click', (e) => {
+      const overlay = document.querySelector('.mobile-overlay');
+      if (overlay && overlay.style.display === 'flex') {
+        if (!overlay.contains(e.target) && !e.target.closest('.hamburger-btn')) {
+          this.setState({ mobileOpen: false });
+        }
+      }
+    });
+  }
+}
+</script>
+<template id="__bundler_thumbnail" data-bg-color="#1A201C">
+  <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="500" fill="#1A201C"/>
+    <text x="400" y="180" text-anchor="middle" font-family="serif" font-style="italic" font-size="52" fill="#406D4D">Little</text>
+    <text x="400" y="290" text-anchor="middle" font-family="serif" font-weight="900" font-size="140" fill="#D15235">ITALY</text>
+    <text x="400" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#FFFDF8" letter-spacing="10">GASTRO FEST</text>
+    <text x="400" y="400" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#E3A337" letter-spacing="4">TORREMOLINOS · 27 Y 28 AGO 2026</text>
+  </svg>
+</template>
+</body>
+</html>
+<script>
+// ── Mobile menu ──────────────────────────────────────────
+function toggleMenu() {
+  var nav = document.getElementById('mobile-nav-overlay');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+}
+function closeMenu() {
+  document.getElementById('mobile-nav-overlay').style.display = 'none';
+}
+document.addEventListener('click', function(e) {
+  var nav = document.getElementById('mobile-nav-overlay');
+  if (nav && nav.style.display === 'flex' && !nav.contains(e.target) && !e.target.closest('.hamburger-btn')) {
+    nav.style.display = 'none';
+  }
+});
+
+// ── Form submit ───────────────────────────────────────────
+function handleSubmit(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('button[type="submit"]');
+  if (btn) {
+    btn.textContent = 'Mensaje enviado';
+    btn.style.background = '#406D4D';
+    setTimeout(function() {
+      btn.textContent = 'Enviar mensaje';
+      btn.style.background = '#D15235';
+      e.target.reset();
+    }, 3000);
+  }
+}
+
+// ── Header shadow on scroll ───────────────────────────────
+window.addEventListener('scroll', function() {
+  var h = document.getElementById('main-header');
+  if (h) h.style.boxShadow = window.scrollY > 10 ? '0 2px 28px rgba(26,32,28,0.13)' : 'none';
+}, { passive: true });
+
+// ── Fade-in on scroll ─────────────────────────────────────
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
