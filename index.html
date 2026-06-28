@@ -17,6 +17,22 @@ body { background: #FFFDF8; font-family: 'Montserrat', sans-serif; overflow-x: h
 @keyframes btnPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(209,82,53,0.6), 0 0 0 0 rgba(227,163,55,0.3); } 60% { box-shadow: 0 0 0 18px rgba(209,82,53,0), 0 0 0 36px rgba(227,163,55,0); } }
 @keyframes btnShimmer { 0% { background-position: -300% center; } 100% { background-position: 300% center; } }
 @keyframes photoCarousel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.photo-carousel { position: relative; overflow: hidden; height: 340px; margin-top: 44px; width: 100%; }
+.photo-carousel::before,
+.photo-carousel::after { content: ""; position: absolute; top: 0; bottom: 0; width: min(12vw, 170px); z-index: 4; pointer-events: none; }
+.photo-carousel::before { left: 0; background: linear-gradient(to right, #406D4D 18%, rgba(64,109,77,0)); }
+.photo-carousel::after { right: 0; background: linear-gradient(to left, #406D4D 18%, rgba(64,109,77,0)); }
+.photo-carousel-track { display: flex; align-items: center; width: max-content; height: 100%; animation: photoCarousel 42s linear infinite; will-change: transform; }
+.photo-carousel:hover .photo-carousel-track { animation-play-state: paused; }
+.photo-carousel-set { display: flex; align-items: center; gap: 24px; height: 100%; padding: 34px 24px 34px 0; }
+.carousel-photo { --tilt: 0deg; --lift: 0px; position: relative; flex: 0 0 auto; width: var(--photo-w); height: var(--photo-h); padding: 9px 9px 29px; background: #FFF8E9; border: 1px solid rgba(26,32,28,0.15); box-shadow: 0 18px 35px rgba(17,33,23,0.35), 0 5px 12px rgba(17,33,23,0.22); transform: translateY(var(--lift)) rotate(var(--tilt)); transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.carousel-photo::before { content: ""; position: absolute; z-index: 2; top: -13px; left: 50%; width: 64px; height: 22px; background: rgba(227,163,55,0.82); box-shadow: 0 2px 5px rgba(26,32,28,0.16); transform: translateX(-50%) rotate(-2deg); opacity: 0.88; }
+.carousel-photo:nth-child(3n+2)::before { left: 22%; background: rgba(215,185,145,0.92); transform: translateX(-50%) rotate(5deg); }
+.carousel-photo:nth-child(3n)::before { left: 76%; background: rgba(209,82,53,0.82); transform: translateX(-50%) rotate(-4deg); }
+.carousel-photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(1.04) contrast(1.02); transition: transform 0.55s ease, filter 0.55s ease; }
+.carousel-photo figcaption { position: absolute; left: 10px; right: 10px; bottom: 7px; color: #406D4D; font-family: 'Dancing Script', cursive; font-size: 14px; font-weight: 700; line-height: 1; text-align: center; white-space: nowrap; }
+.carousel-photo:hover { z-index: 3; transform: translateY(calc(var(--lift) - 8px)) rotate(0deg) scale(1.035); box-shadow: 0 26px 48px rgba(17,33,23,0.42), 0 7px 16px rgba(17,33,23,0.24); }
+.carousel-photo:hover img { transform: scale(1.025); filter: saturate(1.12) contrast(1.04); }
 .btn-cta-anim { animation: btnPulse 2.4s ease-in-out infinite; }
 .btn-cta-anim:hover { transform: translateY(-3px) scale(1.025) !important; box-shadow: 0 12px 40px rgba(209,82,53,0.45) !important; animation: none !important; }
 .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
@@ -49,10 +65,20 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
   .section-h2 { font-size: clamp(36px, 9vw, 60px) !important; }
   .two-col-form { grid-template-columns: 1fr !important; }
   .menores-grid { grid-template-columns: 1fr !important; }
+  .photo-carousel { height: 275px; margin-top: 36px; }
+  .photo-carousel::before, .photo-carousel::after { width: 42px; }
+  .photo-carousel-set { gap: 16px; padding: 28px 16px 28px 0; }
+  .carousel-photo { width: min(var(--photo-w), 72vw); height: min(var(--photo-h), 230px); padding: 7px 7px 24px; }
+  .carousel-photo figcaption { bottom: 6px; font-size: 12px; }
 }
 @media (min-width: 769px) {
   .hamburger-btn { display: none !important; }
   .mobile-overlay { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-carousel { overflow-x: auto; scrollbar-width: thin; }
+  .photo-carousel-track { animation: none; }
+  .photo-carousel-set[aria-hidden="true"] { display: none; }
 }
 </style>
 
@@ -396,18 +422,70 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
       <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:rgba(215,185,145,0.65);font-size:13px;letter-spacing:0.28em;text-transform:uppercase;margin-bottom:14px;">¿Vienes a descubrirlo?</p>
       <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#FFFDF8;font-size:clamp(28px,4vw,52px);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.92;margin-bottom:36px;">Cada zona, su momento.<br>Una sola noche no será suficiente.</h3>
 
-    <!-- ═══ CARRUSEL DE FOTOS ═══════════════════════════════════════
-         Añade aquí tus divs con imágenes. Estructura de cada foto:
-         <div style="flex-shrink:0;width:190px;height:240px;overflow:hidden;transform:rotate(1deg);box-shadow:0 8px 32px rgba(0,0,0,0.35);">
-           <img src="imgs/TU_IMAGEN.jpg" alt="descripción" style="width:100%;height:100%;object-fit:cover;">
-         </div>
-         Duplica el bloque completo (x2) para loop seamless.
-    ═══════════════════════════════════════════════════════════════ -->
-    <div style="position:relative;overflow:hidden;height:260px;margin-top:56px;width:100%;">
-      <div style="position:absolute;left:0;top:0;bottom:0;width:140px;background:linear-gradient(to right,#406D4D 30%,transparent);z-index:2;pointer-events:none;"></div>
-      <div style="position:absolute;right:0;top:0;bottom:0;width:140px;background:linear-gradient(to left,#406D4D 30%,transparent);z-index:2;pointer-events:none;"></div>
-      <div id="carrusel-strip" style="display:inline-flex;gap:14px;animation:photoCarousel 38s linear infinite;will-change:transform;align-items:center;height:100%;padding:10px 0;">
-        <!-- AÑADE AQUÍ TUS FOTOS (duplicadas x2 para loop seamless) -->
+    <!-- Carrusel editorial: dos grupos idénticos crean un bucle continuo sin saltos. -->
+    <div class="photo-carousel" id="momentos-carousel" aria-label="Momentos y sabores de Little Italy Gastro Fest">
+      <div class="photo-carousel-track" id="carrusel-strip">
+        <div class="photo-carousel-set">
+          <figure class="carousel-photo" style="--photo-w:220px;--photo-h:276px;--tilt:-3deg;--lift:7px;">
+            <img src="imgs/carousel/pasta-momento.jpeg" alt="Mujer disfrutando de un plato de pasta italiana" loading="lazy">
+            <figcaption>La dolce vita</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:292px;--photo-h:196px;--tilt:2.2deg;--lift:-10px;">
+            <img src="imgs/carousel/panini-mesa.jpeg" alt="Selección de panini italianos sobre una mesa" loading="lazy">
+            <figcaption>Fatto a mano</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:228px;--photo-h:238px;--tilt:-1.4deg;--lift:14px;">
+            <img src="imgs/carousel/panini-plato.jpeg" alt="Panini italiano servido con encurtidos" loading="lazy">
+            <figcaption>Buon appetito</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:202px;--tilt:3.4deg;--lift:-5px;">
+            <img src="imgs/carousel/panini-artesano.jpg" alt="Panini artesano con tomate, albahaca y queso" loading="lazy">
+            <figcaption>Sapori d'Italia</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:218px;--photo-h:272px;--tilt:-2.6deg;--lift:5px;">
+            <img src="imgs/carousel/panini-momento.jpg" alt="Mujer disfrutando de un panini al aire libre" loading="lazy">
+            <figcaption>Un momento italiano</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:198px;--tilt:1.8deg;--lift:12px;">
+            <img src="imgs/carousel/panini-compartido.jpg" alt="Pareja compartiendo un panini en el festival" loading="lazy">
+            <figcaption>Meglio insieme</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:238px;--photo-h:238px;--tilt:-3.2deg;--lift:-8px;">
+            <img src="imgs/carousel/tiramisu-clasico.jpg" alt="Tiramisú clásico espolvoreado con cacao" loading="lazy">
+            <figcaption>Dolce finale</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo-carousel-set" aria-hidden="true">
+          <figure class="carousel-photo" style="--photo-w:220px;--photo-h:276px;--tilt:-3deg;--lift:7px;">
+            <img src="imgs/carousel/pasta-momento.jpeg" alt="" loading="lazy">
+            <figcaption>La dolce vita</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:292px;--photo-h:196px;--tilt:2.2deg;--lift:-10px;">
+            <img src="imgs/carousel/panini-mesa.jpeg" alt="" loading="lazy">
+            <figcaption>Fatto a mano</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:228px;--photo-h:238px;--tilt:-1.4deg;--lift:14px;">
+            <img src="imgs/carousel/panini-plato.jpeg" alt="" loading="lazy">
+            <figcaption>Buon appetito</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:202px;--tilt:3.4deg;--lift:-5px;">
+            <img src="imgs/carousel/panini-artesano.jpg" alt="" loading="lazy">
+            <figcaption>Sapori d'Italia</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:218px;--photo-h:272px;--tilt:-2.6deg;--lift:5px;">
+            <img src="imgs/carousel/panini-momento.jpg" alt="" loading="lazy">
+            <figcaption>Un momento italiano</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:198px;--tilt:1.8deg;--lift:12px;">
+            <img src="imgs/carousel/panini-compartido.jpg" alt="" loading="lazy">
+            <figcaption>Meglio insieme</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:238px;--photo-h:238px;--tilt:-3.2deg;--lift:-8px;">
+            <img src="imgs/carousel/tiramisu-clasico.jpg" alt="" loading="lazy">
+            <figcaption>Dolce finale</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
 
