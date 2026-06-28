@@ -65,7 +65,8 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
 .legal-dialog__heading { font-family: 'Playfair Display', serif; font-size: clamp(23px, 4vw, 34px); font-weight: 900; line-height: 1; text-transform: uppercase; }
 .legal-dialog__close { width: 38px; height: 38px; color: #FFFDF8; background: transparent; border: 1px solid rgba(255,253,248,0.45); cursor: pointer; font-size: 24px; line-height: 1; }
 .legal-dialog__body { max-height: calc(min(86vh, 780px) - 78px); padding: 28px 30px 34px; overflow-y: auto; }
-.legal-policy[hidden] { display: none; }
+.legal-policy { display: none; }
+.legal-policy.is-active { display: block; }
 .legal-policy h3 { margin: 24px 0 8px; color: #D15235; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; text-transform: uppercase; }
 .legal-policy h3:first-child { margin-top: 0; }
 .legal-policy p,
@@ -77,6 +78,12 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
 .legal-storage-table th,
 .legal-storage-table td { padding: 10px; border: 1px solid rgba(26,32,28,0.2); text-align: left; vertical-align: top; }
 .legal-storage-table th { color: #FFFDF8; background: #406D4D; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+.contact-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+.form-status { display: none; padding: 13px 15px; border: 2px solid #1A201C; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; line-height: 1.55; }
+.form-status.is-visible { display: block; }
+.form-status.is-success { color: #1A201C; background: #DDE8D8; border-color: #406D4D; }
+.form-status.is-error { color: #7E281B; background: #F8DDD5; border-color: #D15235; }
+.contact-submit[disabled] { cursor: wait; opacity: 0.72; transform: none !important; }
 @media (max-width: 768px) {
   .nav-links { display: none !important; }
   .hamburger-btn { display: flex !important; }
@@ -641,15 +648,19 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
       <div class="contact-flex" style="display:flex;gap:72px;align-items:flex-start;">
 
         <div class="contact-form-col" style="flex:1;">
-          <form style="display:flex;flex-direction:column;gap:22px;" onsubmit="handleSubmit(event)">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="display:flex;flex-direction:column;gap:22px;" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="access_key" value="67aca348-cb04-40aa-8cc0-70d86dd764ef">
+            <input type="hidden" name="subject" value="Nueva consulta · Little Italy Gastro Fest">
+            <input type="hidden" name="from_name" value="Web Little Italy Gastro Fest">
+            <input type="checkbox" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="two-col-form" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
               <div style="display:flex;flex-direction:column;gap:7px;">
                 <label for="nombre" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Nombre *</label>
-                <input id="nombre" type="text" name="nombre" required="" placeholder="Tu nombre" style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;transition:border-color 0.2s;width:100%;">
+                <input id="nombre" type="text" name="nombre" required="" minlength="2" maxlength="100" autocomplete="name" placeholder="Tu nombre" style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;transition:border-color 0.2s;width:100%;">
               </div>
               <div style="display:flex;flex-direction:column;gap:7px;">
                 <label for="email" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Correo electrónico *</label>
-                <input id="email" type="email" name="email" required="" placeholder="tu@email.com" style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;transition:border-color 0.2s;width:100%;">
+                <input id="email" type="email" name="email" required="" maxlength="254" autocomplete="email" placeholder="tu@email.com" style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;transition:border-color 0.2s;width:100%;">
               </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:7px;">
@@ -664,15 +675,16 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
             </div>
             <div style="display:flex;flex-direction:column;gap:7px;">
               <label for="mensaje" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#1A201C;">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" required="" rows="5" placeholder="Escribe tu mensaje aquí..." style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;resize:vertical;transition:border-color 0.2s;width:100%;"></textarea>
+              <textarea id="mensaje" name="mensaje" required="" minlength="10" maxlength="2000" rows="5" placeholder="Escribe tu mensaje aquí..." style="border:2px solid #1A201C;background:transparent;padding:15px 16px;font-size:15px;color:#1A201C;resize:vertical;transition:border-color 0.2s;width:100%;"></textarea>
             </div>
             <div style="display:flex;align-items:flex-start;gap:12px;">
-              <input type="checkbox" id="privacidad" required="" style="width:18px;height:18px;margin-top:3px;accent-color:#406D4D;flex-shrink:0;cursor:pointer;">
+              <input type="checkbox" id="privacidad" name="privacidad_leida" value="Sí" required="" style="width:18px;height:18px;margin-top:3px;accent-color:#406D4D;flex-shrink:0;cursor:pointer;">
               <label for="privacidad" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#1A201C;line-height:1.6;cursor:pointer;">He leído la <a href="#politica-privacidad" class="legal-link" data-legal-policy="privacy" style="color:#406D4D;text-decoration:underline;text-underline-offset:3px;">Política de Privacidad</a>.</label>
             </div>
             <div>
-              <button type="submit" class="btn-r" style="background:#D15235;color:#FFFDF8;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;letter-spacing:0.12em;text-transform:uppercase;padding:20px 56px;border:none;cursor:pointer;transition:background 0.2s,transform 0.2s;">Enviar mensaje</button>
+              <button type="submit" class="btn-r contact-submit" style="background:#D15235;color:#FFFDF8;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;letter-spacing:0.12em;text-transform:uppercase;padding:20px 56px;border:none;cursor:pointer;transition:background 0.2s,transform 0.2s;">Enviar mensaje</button>
             </div>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
 
@@ -787,19 +799,22 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
     <button type="button" id="legal-dialog-close" class="legal-dialog__close" aria-label="Cerrar información legal">×</button>
   </div>
   <div class="legal-dialog__body">
-    <article id="politica-cookies" class="legal-policy" data-policy-panel="cookies">
-      <p class="legal-policy__notice"><strong>Resumen:</strong> esta web no instala cookies de analítica, publicidad, perfiles ni seguimiento. El único almacenamiento propio sirve para recordar que cerraste el aviso.</p>
+    <article id="politica-cookies" class="legal-policy is-active" data-policy-panel="cookies">
+      <p class="legal-policy__notice"><strong>Una experiencia clara, también online:</strong> en la web de Little Italy Gastro Fest no utilizamos cookies para seguirte, crear perfiles ni mostrarte publicidad personalizada.</p>
 
-      <h3>¿Qué utiliza esta web?</h3>
-      <p>Little Italy Gastro Fest es actualmente una web informativa. No utilizamos herramientas de medición, píxeles publicitarios, perfiles de usuario ni cookies de redes sociales. Guardamos una preferencia técnica en el almacenamiento local de tu navegador para no mostrar repetidamente este mensaje.</p>
+      <h3>Qué son las cookies</h3>
+      <p>Las cookies y tecnologías similares son pequeños archivos o datos que una página puede guardar en el navegador para recordar información sobre una visita. Algunas son necesarias para que una web funcione y otras se utilizan para medir audiencias, personalizar contenidos o mostrar publicidad.</p>
+
+      <h3>Qué utilizamos en Little Italy</h3>
+      <p>Esta web tiene una finalidad informativa y promocional sobre el festival. No instalamos cookies de analítica, publicidad, redes sociales o elaboración de perfiles. Únicamente guardamos una preferencia técnica local para recordar que ya has cerrado el aviso y evitar mostrártelo en cada visita.</p>
 
       <table class="legal-storage-table">
         <thead><tr><th>Elemento</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr></thead>
-        <tbody><tr><td><code>littleitaly_cookie_notice_v1</code></td><td>Almacenamiento local propio y técnico</td><td>Recordar que el aviso informativo fue cerrado</td><td>12 meses</td></tr></tbody>
+        <tbody><tr><td><code>littleitaly_cookie_notice_v2</code></td><td>Almacenamiento local propio y técnico</td><td>Recordar que el aviso informativo fue cerrado</td><td>12 meses</td></tr></tbody>
       </table>
 
-      <h3>Recursos externos</h3>
-      <p>La web se aloja en Vercel y descarga tipografías desde Google Fonts. Estos proveedores pueden recibir datos técnicos de conexión —como dirección IP, navegador o fecha de acceso— necesarios para entregar sus recursos, conforme a sus propias políticas. Puedes consultar la <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">privacidad de Vercel</a> y la <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">privacidad de Google</a>. Instagram solo se abre si decides seguir el enlace; no hay contenido incrustado de esa red en esta página.</p>
+      <h3>Servicios externos</h3>
+      <p>La web se aloja en Vercel y descarga tipografías desde Google Fonts. Estos proveedores pueden recibir datos técnicos de conexión —como dirección IP, navegador o fecha de acceso— necesarios para entregar sus recursos, conforme a sus propias políticas. Puedes consultar la <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">privacidad de Vercel</a> y la <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">privacidad de Google</a>. El servicio Web3Forms solo interviene cuando decides enviar el formulario de contacto. Instagram únicamente se abre si pulsas su enlace.</p>
 
       <h3>Cómo borrar la preferencia</h3>
       <p>Puedes eliminarla desde la configuración de privacidad o datos de sitios de tu navegador. Al borrarla, el aviso volverá a aparecer. Si en el futuro incorporamos analítica, publicidad u otras tecnologías no necesarias, pediremos una elección previa y ofreceremos aceptar o rechazar en condiciones equivalentes.</p>
@@ -808,8 +823,8 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
       <p>Para cualquier duda escribe a <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>. Última actualización: 28 de junio de 2026.</p>
     </article>
 
-    <article id="politica-privacidad" class="legal-policy" data-policy-panel="privacy" hidden>
-      <p class="legal-policy__notice"><strong>Privacidad por defecto:</strong> esta página no envía ni almacena los datos escritos en el formulario. No realizamos perfiles, seguimiento ni cesión comercial de datos.</p>
+    <article id="politica-privacidad" class="legal-policy" data-policy-panel="privacy">
+      <p class="legal-policy__notice"><strong>Uso limitado:</strong> los datos enviados mediante el formulario se utilizarán exclusivamente para recibir y responder tu consulta. No se usarán para publicidad, perfiles, boletines ni cesiones comerciales.</p>
 
       <h3>Responsable y contacto</h3>
       <p>El responsable del sitio es la organización de Little Italy Gastro Fest, proyecto de Somos Gastronómico. Para cuestiones de privacidad puedes contactar en <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>.</p>
@@ -817,21 +832,22 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
       <h3>Datos y finalidades</h3>
       <ul>
         <li><strong>Navegación:</strong> no recopilamos datos personales con fines de analítica o publicidad. El proveedor de alojamiento puede tratar registros técnicos imprescindibles para servir y proteger la web.</li>
-        <li><strong>Formulario:</strong> actualmente funciona como demostración local. El nombre, correo y mensaje escritos no salen del navegador, no se envían a un servidor y se eliminan al restablecer el formulario.</li>
-        <li><strong>Correo electrónico:</strong> si nos escribes voluntariamente, utilizaremos tus datos de contacto y el contenido del mensaje únicamente para atender la consulta o gestionar la relación solicitada.</li>
+        <li><strong>Formulario:</strong> tratamos el nombre, correo electrónico, motivo y mensaje que decidas enviar, además de la confirmación de haber leído esta política.</li>
+        <li><strong>Finalidad:</strong> recibir la consulta en <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>, responderla y, cuando proceda, gestionar la relación solicitada.</li>
+        <li><strong>Usos excluidos:</strong> no incorporaremos estos datos a listas comerciales, no enviaremos publicidad sin una autorización específica y no realizaremos perfiles ni decisiones automatizadas.</li>
       </ul>
 
       <h3>Base jurídica y conservación</h3>
-      <p>Las consultas recibidas por correo se tratan para responder a tu petición y, cuando corresponda, aplicar medidas precontractuales solicitadas por ti. Se conservarán durante el tiempo necesario para atender la consulta y cumplir las responsabilidades legales aplicables. No se tomarán decisiones automatizadas ni se elaborarán perfiles.</p>
+      <p>El tratamiento se basa en tu solicitud de contacto y, cuando corresponda, en la aplicación de medidas precontractuales solicitadas por ti. Conservaremos el correo únicamente durante el tiempo necesario para atender la consulta y las posibles responsabilidades legales; después deberá eliminarse o quedar bloqueado cuando la normativa lo exija.</p>
 
       <h3>Destinatarios y proveedores</h3>
-      <p>No vendemos ni cedemos datos con fines comerciales. Podrán intervenir proveedores técnicos necesarios —como alojamiento o correo— bajo sus condiciones de privacidad, así como autoridades cuando exista una obligación legal. La web utiliza Vercel como alojamiento y Google Fonts para servir tipografías.</p>
+      <p>No vendemos ni cedemos datos con fines comerciales. El formulario utiliza <a href="https://web3forms.com/" target="_blank" rel="noopener noreferrer">Web3Forms</a> para procesar el envío y entregarlo a nuestro correo. Este proveedor opera infraestructura en Estados Unidos y declara que los envíos se remiten al destinatario; sus servicios pueden conservar temporalmente las solicitudes y registros técnicos conforme a sus condiciones. También intervienen los proveedores de alojamiento web y correo. Las autoridades podrán recibir información únicamente cuando exista una obligación legal.</p>
 
       <h3>Tus derechos</h3>
       <p>Puedes solicitar acceso, rectificación, supresión, oposición, limitación o portabilidad, cuando correspondan, escribiendo a <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>. También puedes presentar una reclamación ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos</a>.</p>
 
       <h3>Menores y cambios</h3>
-      <p>Esta web no pretende recabar datos de menores. Actualizaremos esta política si activamos el envío real del formulario, venta de entradas, analítica u otros servicios que impliquen nuevos tratamientos. Última actualización: 28 de junio de 2026.</p>
+      <p>Esta web no pretende recabar datos de menores mediante el formulario. Actualizaremos esta política si incorporamos venta de entradas, analítica, boletines u otros servicios que impliquen nuevos tratamientos. Última actualización: 28 de junio de 2026.</p>
     </article>
   </div>
 </dialog>
@@ -859,19 +875,7 @@ class Component extends DCLogic {
         overflowY: 'auto',
         display: open ? 'flex' : 'none',
       },
-      handleFormSubmit: (e) => {
-        e.preventDefault();
-        const btn = e.target.querySelector('button[type="submit"]');
-        if (btn) {
-          btn.textContent = 'Mensaje enviado';
-          btn.style.background = '#406D4D';
-          setTimeout(() => {
-            btn.textContent = 'Enviar mensaje';
-            btn.style.background = '#D15235';
-            e.target.reset();
-          }, 3000);
-        }
-      }
+      handleFormSubmit: (e) => handleSubmit(e)
     };
   }
 
@@ -927,17 +931,58 @@ document.addEventListener('click', function(e) {
 });
 
 // ── Form submit ───────────────────────────────────────────
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  var btn = e.target.querySelector('button[type="submit"]');
-  if (btn) {
-    btn.textContent = 'Mensaje enviado';
-    btn.style.background = '#406D4D';
-    setTimeout(function() {
-      btn.textContent = 'Enviar mensaje';
-      btn.style.background = '#D15235';
-      e.target.reset();
-    }, 3000);
+  var form = e.currentTarget;
+  var btn = form.querySelector('button[type="submit"]');
+  var status = document.getElementById('form-status');
+  var formData = new FormData(form);
+  var payload = Object.fromEntries(formData.entries());
+
+  function showStatus(message, type) {
+    status.textContent = message;
+    status.className = 'form-status is-visible ' + (type === 'success' ? 'is-success' : 'is-error');
+  }
+
+  payload.nombre = String(payload.nombre || '').trim();
+  payload.email = String(payload.email || '').trim();
+  payload.motivo = String(payload.motivo || '').trim();
+  payload.mensaje = String(payload.mensaje || '').trim();
+  payload.replyto = payload.email;
+
+  if (payload.nombre.length < 2 || payload.nombre.length > 100 || payload.email.length > 254 || payload.mensaje.length < 10 || payload.mensaje.length > 2000) {
+    showStatus('Revisa los campos: el nombre y el mensaje deben tener una longitud válida.', 'error');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  form.setAttribute('aria-busy', 'true');
+  status.className = 'form-status';
+
+  var controller = new AbortController();
+  var timeout = window.setTimeout(function() { controller.abort(); }, 12000);
+
+  try {
+    var response = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+      credentials: 'omit',
+      signal: controller.signal
+    });
+    var result = await response.json();
+    if (!response.ok || result.success !== true) throw new Error('Submission failed');
+
+    showStatus('Mensaje enviado. Grazie! Te responderemos lo antes posible.', 'success');
+    form.reset();
+  } catch (error) {
+    showStatus('No hemos podido enviar el mensaje. Inténtalo de nuevo o escribe a hola@somosgastronomico.com.', 'error');
+  } finally {
+    window.clearTimeout(timeout);
+    btn.disabled = false;
+    btn.textContent = 'Enviar mensaje';
+    form.removeAttribute('aria-busy');
   }
 }
 
@@ -956,7 +1001,7 @@ var observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
 
 // ── Aviso técnico y políticas legales ─────────────────────
-var COOKIE_NOTICE_KEY = 'littleitaly_cookie_notice_v1';
+var COOKIE_NOTICE_KEY = 'littleitaly_cookie_notice_v2';
 var COOKIE_NOTICE_MAX_AGE = 365 * 24 * 60 * 60 * 1000;
 var legalTrigger = null;
 
@@ -984,7 +1029,7 @@ function openLegalPolicy(policy, trigger) {
   legalTrigger = trigger || null;
 
   document.querySelectorAll('[data-policy-panel]').forEach(function(panel) {
-    panel.hidden = panel.getAttribute('data-policy-panel') !== policy;
+    panel.classList.toggle('is-active', panel.getAttribute('data-policy-panel') === policy);
   });
   title.textContent = policy === 'privacy' ? 'Política de privacidad' : 'Política de cookies';
 
