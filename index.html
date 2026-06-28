@@ -45,6 +45,38 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
 .btn-g:hover { background: #325840 !important; }
 .nav-link:hover { color: #D15235 !important; }
 .card-hover:hover { transform: translateY(-4px); transition: transform 0.3s ease; }
+@keyframes cookieNoticeIn { from { opacity: 0; transform: translateY(22px) rotate(-0.5deg); } to { opacity: 1; transform: translateY(0) rotate(-0.5deg); } }
+.cookie-notice { position: fixed; left: 18px; bottom: 18px; z-index: 1000; display: none; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; width: min(680px, calc(100vw - 36px)); padding: 15px 16px; background: #FFF8E9; border: 2px solid #1A201C; box-shadow: 8px 8px 0 rgba(26,32,28,0.22), 0 18px 48px rgba(17,33,23,0.24); transform: rotate(-0.5deg); }
+.cookie-notice.is-visible { display: grid; animation: cookieNoticeIn 0.48s cubic-bezier(.2,.8,.2,1) both; }
+.cookie-notice__stamp { width: 47px; height: 47px; display: grid; place-items: center; flex-shrink: 0; background: #E3A337; border: 2px solid #1A201C; border-radius: 50%; transform: rotate(-7deg); }
+.cookie-notice__title { display: block; margin-bottom: 3px; color: #406D4D; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+.cookie-notice__text { color: #1A201C; font-family: 'Montserrat', sans-serif; font-size: 12px; line-height: 1.5; }
+.cookie-notice__links { display: flex; flex-wrap: wrap; gap: 5px 14px; margin-top: 6px; }
+.cookie-notice__links a { color: #406D4D; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-notice__button { min-width: 104px; padding: 12px 15px; color: #FFFDF8; background: #D15235; border: 0; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s ease, transform 0.2s ease; }
+.cookie-notice__button:hover { background: #b83a24; transform: translateY(-2px); }
+.cookie-notice__button:focus-visible,
+.legal-dialog button:focus-visible,
+.legal-link:focus-visible { outline: 3px solid #E3A337; outline-offset: 3px; }
+.legal-dialog { width: min(820px, calc(100vw - 28px)); max-height: min(86vh, 780px); margin: auto; padding: 0; color: #1A201C; background: #FFFDF8; border: 2px solid #1A201C; box-shadow: 14px 14px 0 rgba(227,163,55,0.72); overflow: hidden; }
+.legal-dialog::backdrop { background: rgba(12,22,16,0.78); backdrop-filter: blur(4px); }
+.legal-dialog__header { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 22px; color: #FFFDF8; background: #406D4D; border-bottom: 2px solid #1A201C; }
+.legal-dialog__eyebrow { display: block; margin-bottom: 3px; color: #E3A337; font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; }
+.legal-dialog__heading { font-family: 'Playfair Display', serif; font-size: clamp(23px, 4vw, 34px); font-weight: 900; line-height: 1; text-transform: uppercase; }
+.legal-dialog__close { width: 38px; height: 38px; color: #FFFDF8; background: transparent; border: 1px solid rgba(255,253,248,0.45); cursor: pointer; font-size: 24px; line-height: 1; }
+.legal-dialog__body { max-height: calc(min(86vh, 780px) - 78px); padding: 28px 30px 34px; overflow-y: auto; }
+.legal-policy[hidden] { display: none; }
+.legal-policy h3 { margin: 24px 0 8px; color: #D15235; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; text-transform: uppercase; }
+.legal-policy h3:first-child { margin-top: 0; }
+.legal-policy p,
+.legal-policy li { color: #323832; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.7; }
+.legal-policy ul { display: grid; gap: 7px; padding-left: 20px; }
+.legal-policy a { color: #406D4D; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.legal-policy__notice { margin-bottom: 20px; padding: 14px 16px; background: #F3E5C8; border-left: 5px solid #E3A337; }
+.legal-storage-table { width: 100%; margin-top: 10px; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 12px; }
+.legal-storage-table th,
+.legal-storage-table td { padding: 10px; border: 1px solid rgba(26,32,28,0.2); text-align: left; vertical-align: top; }
+.legal-storage-table th { color: #FFFDF8; background: #406D4D; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
 @media (max-width: 768px) {
   .nav-links { display: none !important; }
   .hamburger-btn { display: flex !important; }
@@ -70,6 +102,11 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
   .photo-carousel-set { gap: 16px; padding: 28px 16px 28px 0; }
   .carousel-photo { width: min(var(--photo-w), 72vw); height: min(var(--photo-h), 230px); padding: 7px 7px 24px; }
   .carousel-photo figcaption { bottom: 6px; font-size: 12px; }
+  .cookie-notice { left: 10px; bottom: 10px; grid-template-columns: auto 1fr; gap: 11px; width: calc(100vw - 20px); padding: 13px; box-shadow: 5px 5px 0 rgba(26,32,28,0.22), 0 12px 32px rgba(17,33,23,0.24); transform: none; }
+  .cookie-notice__stamp { width: 40px; height: 40px; }
+  .cookie-notice__button { grid-column: 1 / -1; width: 100%; padding: 11px 14px; }
+  .legal-dialog__body { padding: 22px 18px 28px; }
+  .legal-storage-table { display: block; overflow-x: auto; }
 }
 @media (min-width: 769px) {
   .hamburger-btn { display: none !important; }
@@ -631,7 +668,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
             </div>
             <div style="display:flex;align-items:flex-start;gap:12px;">
               <input type="checkbox" id="privacidad" required="" style="width:18px;height:18px;margin-top:3px;accent-color:#406D4D;flex-shrink:0;cursor:pointer;">
-              <label for="privacidad" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#1A201C;line-height:1.6;cursor:pointer;">He leído y acepto la <a href="#pendiente-privacidad" style="color:#406D4D;text-decoration:underline;text-underline-offset:3px;">Política de Privacidad</a>.</label>
+              <label for="privacidad" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#1A201C;line-height:1.6;cursor:pointer;">He leído la <a href="#politica-privacidad" class="legal-link" data-legal-policy="privacy" style="color:#406D4D;text-decoration:underline;text-underline-offset:3px;">Política de Privacidad</a>.</label>
             </div>
             <div>
               <button type="submit" class="btn-r" style="background:#D15235;color:#FFFDF8;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;letter-spacing:0.12em;text-transform:uppercase;padding:20px 56px;border:none;cursor:pointer;transition:background 0.2s,transform 0.2s;">Enviar mensaje</button>
@@ -706,8 +743,8 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
         <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#D15235;margin-bottom:18px;">Legal</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
           <a href="#pendiente-aviso-legal" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Aviso legal</a>
-          <a href="#pendiente-privacidad" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Política de privacidad</a>
-          <a href="#pendiente-cookies" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Política de cookies</a>
+          <a href="#politica-privacidad" class="legal-link" data-legal-policy="privacy" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Política de privacidad</a>
+          <a href="#politica-cookies" class="legal-link" data-legal-policy="cookies" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Política de cookies</a>
           <a href="#pendiente-condiciones-compra" style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(215,185,145,0.4);">Condiciones de compra</a>
         </div>
       </div>
@@ -721,6 +758,83 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #406D4D
 
   </div>
 </footer>
+
+<!-- Aviso informativo: el sitio solo utiliza almacenamiento local técnico. -->
+<aside id="cookie-notice" class="cookie-notice" aria-labelledby="cookie-notice-title" aria-describedby="cookie-notice-text">
+  <div class="cookie-notice__stamp" aria-hidden="true">
+    <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.8 11.2a5.8 5.8 0 0 1-7-7A10.8 10.8 0 1 0 22.8 11.2Z" fill="#FFF8E9" stroke="#1A201C" stroke-width="1.8"/>
+      <circle cx="8.2" cy="10" r="1.4" fill="#D15235"/><circle cx="12.2" cy="17.2" r="1.4" fill="#406D4D"/><circle cx="7.4" cy="18.5" r="1" fill="#1A201C"/>
+    </svg>
+  </div>
+  <div>
+    <strong id="cookie-notice-title" class="cookie-notice__title">Solo lo esencial</strong>
+    <p id="cookie-notice-text" class="cookie-notice__text">No usamos cookies de analítica, publicidad ni seguimiento. Solo guardamos en este dispositivo que ya viste este aviso.</p>
+    <div class="cookie-notice__links">
+      <a href="#politica-cookies" class="legal-link" data-legal-policy="cookies">Política de cookies</a>
+      <a href="#politica-privacidad" class="legal-link" data-legal-policy="privacy">Política de privacidad</a>
+    </div>
+  </div>
+  <button type="button" id="cookie-dismiss" class="cookie-notice__button">Entendido</button>
+</aside>
+
+<dialog id="legal-dialog" class="legal-dialog" aria-labelledby="legal-dialog-title">
+  <div class="legal-dialog__header">
+    <div>
+      <span class="legal-dialog__eyebrow">Little Italy · Información legal</span>
+      <h2 id="legal-dialog-title" class="legal-dialog__heading">Política de cookies</h2>
+    </div>
+    <button type="button" id="legal-dialog-close" class="legal-dialog__close" aria-label="Cerrar información legal">×</button>
+  </div>
+  <div class="legal-dialog__body">
+    <article id="politica-cookies" class="legal-policy" data-policy-panel="cookies">
+      <p class="legal-policy__notice"><strong>Resumen:</strong> esta web no instala cookies de analítica, publicidad, perfiles ni seguimiento. El único almacenamiento propio sirve para recordar que cerraste el aviso.</p>
+
+      <h3>¿Qué utiliza esta web?</h3>
+      <p>Little Italy Gastro Fest es actualmente una web informativa. No utilizamos herramientas de medición, píxeles publicitarios, perfiles de usuario ni cookies de redes sociales. Guardamos una preferencia técnica en el almacenamiento local de tu navegador para no mostrar repetidamente este mensaje.</p>
+
+      <table class="legal-storage-table">
+        <thead><tr><th>Elemento</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr></thead>
+        <tbody><tr><td><code>littleitaly_cookie_notice_v1</code></td><td>Almacenamiento local propio y técnico</td><td>Recordar que el aviso informativo fue cerrado</td><td>12 meses</td></tr></tbody>
+      </table>
+
+      <h3>Recursos externos</h3>
+      <p>La web se aloja en Vercel y descarga tipografías desde Google Fonts. Estos proveedores pueden recibir datos técnicos de conexión —como dirección IP, navegador o fecha de acceso— necesarios para entregar sus recursos, conforme a sus propias políticas. Puedes consultar la <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">privacidad de Vercel</a> y la <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">privacidad de Google</a>. Instagram solo se abre si decides seguir el enlace; no hay contenido incrustado de esa red en esta página.</p>
+
+      <h3>Cómo borrar la preferencia</h3>
+      <p>Puedes eliminarla desde la configuración de privacidad o datos de sitios de tu navegador. Al borrarla, el aviso volverá a aparecer. Si en el futuro incorporamos analítica, publicidad u otras tecnologías no necesarias, pediremos una elección previa y ofreceremos aceptar o rechazar en condiciones equivalentes.</p>
+
+      <h3>Contacto y actualización</h3>
+      <p>Para cualquier duda escribe a <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>. Última actualización: 28 de junio de 2026.</p>
+    </article>
+
+    <article id="politica-privacidad" class="legal-policy" data-policy-panel="privacy" hidden>
+      <p class="legal-policy__notice"><strong>Privacidad por defecto:</strong> esta página no envía ni almacena los datos escritos en el formulario. No realizamos perfiles, seguimiento ni cesión comercial de datos.</p>
+
+      <h3>Responsable y contacto</h3>
+      <p>El responsable del sitio es la organización de Little Italy Gastro Fest, proyecto de Somos Gastronómico. Para cuestiones de privacidad puedes contactar en <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>.</p>
+
+      <h3>Datos y finalidades</h3>
+      <ul>
+        <li><strong>Navegación:</strong> no recopilamos datos personales con fines de analítica o publicidad. El proveedor de alojamiento puede tratar registros técnicos imprescindibles para servir y proteger la web.</li>
+        <li><strong>Formulario:</strong> actualmente funciona como demostración local. El nombre, correo y mensaje escritos no salen del navegador, no se envían a un servidor y se eliminan al restablecer el formulario.</li>
+        <li><strong>Correo electrónico:</strong> si nos escribes voluntariamente, utilizaremos tus datos de contacto y el contenido del mensaje únicamente para atender la consulta o gestionar la relación solicitada.</li>
+      </ul>
+
+      <h3>Base jurídica y conservación</h3>
+      <p>Las consultas recibidas por correo se tratan para responder a tu petición y, cuando corresponda, aplicar medidas precontractuales solicitadas por ti. Se conservarán durante el tiempo necesario para atender la consulta y cumplir las responsabilidades legales aplicables. No se tomarán decisiones automatizadas ni se elaborarán perfiles.</p>
+
+      <h3>Destinatarios y proveedores</h3>
+      <p>No vendemos ni cedemos datos con fines comerciales. Podrán intervenir proveedores técnicos necesarios —como alojamiento o correo— bajo sus condiciones de privacidad, así como autoridades cuando exista una obligación legal. La web utiliza Vercel como alojamiento y Google Fonts para servir tipografías.</p>
+
+      <h3>Tus derechos</h3>
+      <p>Puedes solicitar acceso, rectificación, supresión, oposición, limitación o portabilidad, cuando correspondan, escribiendo a <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>. También puedes presentar una reclamación ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos</a>.</p>
+
+      <h3>Menores y cambios</h3>
+      <p>Esta web no pretende recabar datos de menores. Actualizaremos esta política si activamos el envío real del formulario, venta de entradas, analítica u otros servicios que impliquen nuevos tratamientos. Última actualización: 28 de junio de 2026.</p>
+    </article>
+  </div>
+</dialog>
 
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
@@ -796,17 +910,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<template id="__bundler_thumbnail" data-bg-color="#1A201C">
-  <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-    <rect width="800" height="500" fill="#1A201C"/>
-    <text x="400" y="180" text-anchor="middle" font-family="serif" font-style="italic" font-size="52" fill="#406D4D">Little</text>
-    <text x="400" y="290" text-anchor="middle" font-family="serif" font-weight="900" font-size="140" fill="#D15235">ITALY</text>
-    <text x="400" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#FFFDF8" letter-spacing="10">GASTRO FEST</text>
-    <text x="400" y="400" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#E3A337" letter-spacing="4">TORREMOLINOS · 27 Y 28 AGO 2026</text>
-  </svg>
-</template>
-</body>
-</html>
 <script>
 // ── Mobile menu ──────────────────────────────────────────
 function toggleMenu() {
@@ -851,6 +954,73 @@ var observer = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+// ── Aviso técnico y políticas legales ─────────────────────
+var COOKIE_NOTICE_KEY = 'littleitaly_cookie_notice_v1';
+var COOKIE_NOTICE_MAX_AGE = 365 * 24 * 60 * 60 * 1000;
+var legalTrigger = null;
+
+function cookieNoticeWasSeen() {
+  try {
+    var stored = JSON.parse(localStorage.getItem(COOKIE_NOTICE_KEY));
+    return Boolean(stored && stored.acknowledgedAt && (Date.now() - stored.acknowledgedAt) < COOKIE_NOTICE_MAX_AGE);
+  } catch (error) {
+    return false;
+  }
+}
+
+function dismissCookieNotice() {
+  try {
+    localStorage.setItem(COOKIE_NOTICE_KEY, JSON.stringify({ acknowledgedAt: Date.now() }));
+  } catch (error) {
+    // La navegación continúa aunque el navegador bloquee el almacenamiento local.
+  }
+  document.getElementById('cookie-notice').classList.remove('is-visible');
+}
+
+function openLegalPolicy(policy, trigger) {
+  var dialog = document.getElementById('legal-dialog');
+  var title = document.getElementById('legal-dialog-title');
+  legalTrigger = trigger || null;
+
+  document.querySelectorAll('[data-policy-panel]').forEach(function(panel) {
+    panel.hidden = panel.getAttribute('data-policy-panel') !== policy;
+  });
+  title.textContent = policy === 'privacy' ? 'Política de privacidad' : 'Política de cookies';
+
+  if (typeof dialog.showModal === 'function') {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute('open', '');
+  }
+  dialog.querySelector('.legal-dialog__body').scrollTop = 0;
+}
+
+function closeLegalPolicy() {
+  var dialog = document.getElementById('legal-dialog');
+  if (typeof dialog.close === 'function') dialog.close();
+  else dialog.removeAttribute('open');
+  if (legalTrigger) legalTrigger.focus();
+}
+
+document.querySelectorAll('[data-legal-policy]').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+    openLegalPolicy(link.getAttribute('data-legal-policy'), link);
+  });
+});
+
+document.getElementById('cookie-dismiss').addEventListener('click', dismissCookieNotice);
+document.getElementById('legal-dialog-close').addEventListener('click', closeLegalPolicy);
+document.getElementById('legal-dialog').addEventListener('click', function(event) {
+  if (event.target === event.currentTarget) closeLegalPolicy();
+});
+
+if (!cookieNoticeWasSeen()) {
+  window.setTimeout(function() {
+    document.getElementById('cookie-notice').classList.add('is-visible');
+  }, 650);
+}
 </script>
 </body>
 </html>
