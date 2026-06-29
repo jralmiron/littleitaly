@@ -807,7 +807,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 
       <table class="legal-storage-table">
         <thead><tr><th>Elemento</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr></thead>
-        <tbody><tr><td><code>littleitaly_cookie_notice_v2</code></td><td>Almacenamiento local propio y técnico</td><td>Recordar que el aviso informativo fue cerrado</td><td>12 meses</td></tr></tbody>
+        <tbody><tr><td><code>littleitaly_cookie_notice_v2</code></td><td>Almacenamiento local propio y técnico</td><td>Recordar que el aviso informativo fue cerrado</td><td>5 minutos</td></tr></tbody>
       </table>
 
       <h3>Servicios externos</h3>
@@ -1031,13 +1031,15 @@ document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el
 
 // ── Aviso técnico y políticas legales ─────────────────────
 var COOKIE_NOTICE_KEY = 'littleitaly_cookie_notice_v2';
-var COOKIE_NOTICE_MAX_AGE = 365 * 24 * 60 * 60 * 1000;
+var COOKIE_NOTICE_MAX_AGE = 5 * 60 * 1000;
 var legalTrigger = null;
 
 function cookieNoticeWasSeen() {
   try {
     var stored = JSON.parse(localStorage.getItem(COOKIE_NOTICE_KEY));
-    return Boolean(stored && stored.acknowledgedAt && (Date.now() - stored.acknowledgedAt) < COOKIE_NOTICE_MAX_AGE);
+    var isCurrent = Boolean(stored && stored.acknowledgedAt && (Date.now() - stored.acknowledgedAt) < COOKIE_NOTICE_MAX_AGE);
+    if (!isCurrent) localStorage.removeItem(COOKIE_NOTICE_KEY);
+    return isCurrent;
   } catch (error) {
     return false;
   }
