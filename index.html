@@ -78,6 +78,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 .legal-dialog__body { max-height: calc(min(86vh, 780px) - 78px); padding: 28px 30px 34px; overflow-y: auto; }
 .legal-policy { display: none; }
 .legal-policy.is-active { display: block; }
+.legal-policy[hidden] { display: none !important; }
 .legal-policy h3 { margin: 24px 0 8px; color: #D6402B; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; text-transform: uppercase; }
 .legal-policy h3:first-child { margin-top: 0; }
 .legal-policy p,
@@ -780,6 +781,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
     <div class="cookie-notice__links">
       <a href="#politica-cookies" class="legal-link" data-legal-policy="cookies">Política de cookies</a>
       <a href="#politica-privacidad" class="legal-link" data-legal-policy="privacy">Política de privacidad</a>
+      <a href="#aviso-legal" class="legal-link" data-legal-policy="legal">Aviso legal</a>
     </div>
   </div>
   <button type="button" id="cookie-dismiss" class="cookie-notice__button">Entendido</button>
@@ -818,7 +820,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
       <p>Para cualquier duda escribe a <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a>. Última actualización: 28 de junio de 2026.</p>
     </article>
 
-    <article id="politica-privacidad" class="legal-policy" data-policy-panel="privacy">
+    <article id="politica-privacidad" class="legal-policy" data-policy-panel="privacy" hidden>
       <p class="legal-policy__notice"><strong>Uso limitado:</strong> los datos enviados mediante el formulario se utilizarán exclusivamente para recibir y responder tu consulta. No se usarán para publicidad, perfiles, boletines ni cesiones comerciales.</p>
 
       <h3>Responsable y contacto</h3>
@@ -845,7 +847,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
       <p>Esta web no pretende recabar datos de menores mediante el formulario. Actualizaremos esta política si incorporamos venta de entradas, analítica, boletines u otros servicios que impliquen nuevos tratamientos. Última actualización: 28 de junio de 2026.</p>
     </article>
 
-    <article id="aviso-legal" class="legal-policy legal-policy--long" data-policy-panel="legal">
+    <article id="aviso-legal" class="legal-policy legal-policy--long" data-policy-panel="legal" hidden>
       <p class="legal-policy__notice"><strong>Titular del sitio:</strong> Grupo de Medios Gastronómicos SLU · <a href="mailto:hola@somosgastronomico.com">hola@somosgastronomico.com</a></p>
 
       <h3>1. Introducción</h3>
@@ -1055,9 +1057,15 @@ function openLegalPolicy(policy, trigger) {
   var title = document.getElementById('legal-dialog-title');
   legalTrigger = trigger || null;
 
+  var activePanel = null;
   document.querySelectorAll('[data-policy-panel]').forEach(function(panel) {
-    panel.classList.toggle('is-active', panel.getAttribute('data-policy-panel') === policy);
+    var isActive = panel.getAttribute('data-policy-panel') === policy;
+    panel.classList.toggle('is-active', isActive);
+    panel.hidden = !isActive;
+    panel.setAttribute('aria-hidden', String(!isActive));
+    if (isActive) activePanel = panel;
   });
+  if (!activePanel) return;
   var policyTitles = { cookies: 'Política de cookies', privacy: 'Política de privacidad', legal: 'Aviso legal' };
   title.textContent = policyTitles[policy] || 'Información legal';
 
