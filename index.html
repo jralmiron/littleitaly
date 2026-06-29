@@ -777,7 +777,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
   </div>
   <div>
     <strong id="cookie-notice-title" class="cookie-notice__title">Solo lo esencial</strong>
-    <p id="cookie-notice-text" class="cookie-notice__text">No usamos cookies de analítica, publicidad ni seguimiento. Solo guardamos en este dispositivo que ya viste este aviso.</p>
+    <p id="cookie-notice-text" class="cookie-notice__text">No usamos cookies de analítica, publicidad ni seguimiento. Este aviso aparecerá en cada visita y permanecerá visible hasta que pulses «Entendido».</p>
     <div class="cookie-notice__links">
       <a href="#politica-cookies" class="legal-link" data-legal-policy="cookies">Política de cookies</a>
       <a href="#politica-privacidad" class="legal-link" data-legal-policy="privacy">Política de privacidad</a>
@@ -803,12 +803,10 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
       <p>Las cookies y tecnologías similares son pequeños archivos o datos que una página puede guardar en el navegador para recordar información sobre una visita. Algunas son necesarias para que una web funcione y otras se utilizan para medir audiencias, personalizar contenidos o mostrar publicidad.</p>
 
       <h3>Qué utilizamos en Little Italy</h3>
-      <p>Esta web tiene una finalidad informativa y promocional sobre el festival. No instalamos cookies de analítica, publicidad, redes sociales o elaboración de perfiles. Únicamente guardamos una preferencia técnica local para recordar que ya has cerrado el aviso y evitar mostrártelo en cada visita.</p>
+      <p>Esta web tiene una finalidad informativa y promocional sobre el festival. No instalamos cookies de analítica, publicidad, redes sociales o elaboración de perfiles. Tampoco guardamos en tu dispositivo la aceptación o el cierre de este aviso.</p>
 
-      <table class="legal-storage-table">
-        <thead><tr><th>Elemento</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr></thead>
-        <tbody><tr><td><code>littleitaly_cookie_notice_v2</code></td><td>Almacenamiento local propio y técnico</td><td>Recordar que el aviso informativo fue cerrado</td><td>5 minutos</td></tr></tbody>
-      </table>
+      <h3>Funcionamiento del aviso</h3>
+      <p>El aviso permanece visible durante la visita hasta que pulsas «Entendido». Al no conservarse esa acción, volverá a aparecer cada vez que cargues o visites de nuevo la página.</p>
 
       <h3>Servicios externos</h3>
       <p>La web se aloja en Vercel y descarga tipografías desde Google Fonts. Estos proveedores pueden recibir datos técnicos de conexión —como dirección IP, navegador o fecha de acceso— necesarios para entregar sus recursos, conforme a sus propias políticas. Puedes consultar la <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">privacidad de Vercel</a> y la <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">privacidad de Google</a>. El servicio Web3Forms solo interviene cuando decides enviar el formulario de contacto. Fourvenues, Google Maps e Instagram únicamente se abren si pulsas sus respectivos enlaces.</p>
@@ -1030,27 +1028,9 @@ var observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
 
 // ── Aviso técnico y políticas legales ─────────────────────
-var COOKIE_NOTICE_KEY = 'littleitaly_cookie_notice_v2';
-var COOKIE_NOTICE_MAX_AGE = 5 * 60 * 1000;
 var legalTrigger = null;
 
-function cookieNoticeWasSeen() {
-  try {
-    var stored = JSON.parse(localStorage.getItem(COOKIE_NOTICE_KEY));
-    var isCurrent = Boolean(stored && stored.acknowledgedAt && (Date.now() - stored.acknowledgedAt) < COOKIE_NOTICE_MAX_AGE);
-    if (!isCurrent) localStorage.removeItem(COOKIE_NOTICE_KEY);
-    return isCurrent;
-  } catch (error) {
-    return false;
-  }
-}
-
 function dismissCookieNotice() {
-  try {
-    localStorage.setItem(COOKIE_NOTICE_KEY, JSON.stringify({ acknowledgedAt: Date.now() }));
-  } catch (error) {
-    // La navegación continúa aunque el navegador bloquee el almacenamiento local.
-  }
   document.getElementById('cookie-notice').classList.remove('is-visible');
 }
 
@@ -1099,11 +1079,9 @@ document.getElementById('legal-dialog').addEventListener('click', function(event
   if (event.target === event.currentTarget) closeLegalPolicy();
 });
 
-if (!cookieNoticeWasSeen()) {
-  window.setTimeout(function() {
-    document.getElementById('cookie-notice').classList.add('is-visible');
-  }, 650);
-}
+window.setTimeout(function() {
+  document.getElementById('cookie-notice').classList.add('is-visible');
+}, 650);
 </script>
 </body>
 </html>
