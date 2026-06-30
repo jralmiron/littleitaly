@@ -33,7 +33,7 @@ body { background: #F7F1E7; font-family: 'Montserrat', sans-serif; overflow-x: h
 .photo-carousel::after { content: ""; position: absolute; top: 0; bottom: 0; width: min(12vw, 170px); z-index: 4; pointer-events: none; }
 .photo-carousel::before { left: 0; background: linear-gradient(to right, #2F5D4C 18%, rgba(47,93,76,0)); }
 .photo-carousel::after { right: 0; background: linear-gradient(to left, #2F5D4C 18%, rgba(47,93,76,0)); }
-.photo-carousel-track { display: flex; align-items: center; width: max-content; height: 100%; animation: photoCarousel 42s linear infinite; will-change: transform; }
+.photo-carousel-track { display: flex; align-items: center; width: max-content; height: 100%; animation: photoCarousel 58s linear infinite; will-change: transform; }
 .photo-carousel:hover .photo-carousel-track { animation-play-state: paused; }
 .photo-carousel-set { display: flex; align-items: center; gap: 24px; height: 100%; padding: 34px 24px 34px 0; }
 .carousel-photo { --tilt: 0deg; --lift: 0px; position: relative; flex: 0 0 auto; width: var(--photo-w); height: var(--photo-h); padding: 9px 9px 29px; background: #FBF7F1; border: 1px solid rgba(45,45,45,0.15); box-shadow: 0 18px 35px rgba(45,45,45,0.35), 0 5px 12px rgba(45,45,45,0.22); transform: translateY(var(--lift)) rotate(var(--tilt)); transition: transform 0.35s ease, box-shadow 0.35s ease; }
@@ -104,12 +104,12 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 .italy-divider--horizontal { position: relative; z-index: 3; width: 100%; height: 9px; }
 .brand-logo { display:block; width:132px; height:58px; object-fit:contain; object-position:left center; }
 .hero-brand-logo { display:block; width:min(430px, 92%); height:auto; margin-left:-12px; }
-.footer-brand-logo { display:block; width:min(280px, 82vw); height:auto; margin-left:-18px; filter:saturate(1.48) contrast(1.22) brightness(1.12) drop-shadow(0 8px 24px rgba(214,64,43,.16)); }
+.footer-brand-logo { display:block; width:min(280px, 82vw); height:auto; margin-left:-18px; filter:drop-shadow(0 10px 22px rgba(214,64,43,.18)); }
 .brand-logo,
 .hero-brand-logo { filter:saturate(1.32) contrast(1.18) brightness(1.05); }
 .fest-right-col::before { content:""; position:absolute; inset:0 auto 0 0; z-index:2; width:clamp(72px,8vw,128px); pointer-events:none; background:linear-gradient(90deg,#F7F1E7 0%,rgba(247,241,231,.82) 28%,rgba(247,241,231,.34) 62%,rgba(247,241,231,0) 100%); }
 .festival-copy { text-align:justify; text-wrap:pretty; hyphens:auto; }
-.hero-raffle-note { max-width:440px; margin-top:18px; color:var(--green); font-size:12px; font-weight:700; line-height:1.55; letter-spacing:0.02em; }
+.hero-raffle-note { width:max-content; max-width:100%; margin-top:18px; color:var(--green); font-size:12px; font-weight:700; line-height:1.55; letter-spacing:0.02em; white-space:nowrap; }
 .map-link-card { min-height:220px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; padding:28px; color:var(--green); background:var(--cream-soft); border:2px solid var(--ink); text-align:center; transition:transform .2s ease, box-shadow .2s ease, background .2s ease; }
 .map-link-card:hover { transform:translateY(-3px); background:var(--beige); box-shadow:8px 8px 0 rgba(47,93,76,.18); }
 .map-link-card strong { font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
@@ -130,6 +130,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
   .fest-right-col::before { inset:0 0 auto; width:100%; height:58px; background:linear-gradient(180deg,#F7F1E7 0%,rgba(247,241,231,.78) 34%,rgba(247,241,231,0) 100%); }
   .festival-copy { text-align:left; }
   .hero-brand-logo { width:min(360px, 94%); margin-left:-8px; }
+  .hero-raffle-note { width:auto; white-space:normal; }
   .cards-3 { grid-template-columns: 1fr !important; }
   .cards-2x2 { grid-template-columns: 1fr !important; }
   .contact-flex { flex-direction: column !important; }
@@ -183,7 +184,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
   </a>
   <nav class="nav-links" style="display:flex;gap:28px;align-items:center;">
     <a href="#inicio" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#2D2D2D;transition:color 0.2s;">Inicio</a>
-    <a href="#festival" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#2D2D2D;transition:color 0.2s;">Festival</a>
+    <a href="#festival" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#2D2D2D;transition:color 0.2s;">El Festival</a>
     <a href="#gastronomia" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#2D2D2D;transition:color 0.2s;">Gastronomía</a>
     <a href="#contacto" class="nav-link" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#2D2D2D;transition:color 0.2s;">Contacto</a>
   </nav>
@@ -200,7 +201,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 <!-- MENÚ MÓVIL -->
 <div id="mobile-nav-overlay" class="mobile-overlay" style="display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:#2D2D2D;z-index:99;flex-direction:column;padding:32px 32px 40px;gap:0px;overflow-y:auto;">
   <a href="#inicio" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#F7F1E7;padding:16px 0;border-bottom:1px solid rgba(247,241,231,0.08);">Inicio</a>
-  <a href="#festival" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#F7F1E7;padding:16px 0;border-bottom:1px solid rgba(247,241,231,0.08);">Festival</a>
+  <a href="#festival" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#F7F1E7;padding:16px 0;border-bottom:1px solid rgba(247,241,231,0.08);">El Festival</a>
   <a href="#gastronomia" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#F7F1E7;padding:16px 0;border-bottom:1px solid rgba(247,241,231,0.08);">Gastronomía</a>
   <a href="#contacto" onclick="closeMenu()" style="font-family:'Playfair Display',serif;font-weight:900;font-size:32px;letter-spacing:0.06em;text-transform:uppercase;color:#F7F1E7;padding:16px 0;border-bottom:1px solid rgba(247,241,231,0.08);">Contacto</a>
   <div style="margin-top:auto;padding-top:32px;">
@@ -347,7 +348,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
           </div>
           <div style="position:absolute;bottom:0;left:0;right:0;padding:28px;">
             <h3 style="font-family:'Playfair Display',serif;font-weight:900;color:#F7F1E7;font-size:44px;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;margin-bottom:12px;">la Nonna</h3>
-            <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(232,220,203,0.75);line-height:1.65;">El alma del festival. La anfitriona que hace que te sientas bienvenido desde el primer momento y que volverás a buscar.</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(232,220,203,0.75);line-height:1.65;">El alma del festival. La anfitriona que hace que te sientas bienvenido desde el primer momento y que te robará el cuore.</p>
           </div>
         </div>
 
@@ -379,7 +380,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
       </div>
       <div style="display:flex;align-items:flex-end;gap:48px;flex-wrap:wrap;" class="fade-in">
         <h2 class="section-h2" style="font-family:'Playfair Display',serif;font-weight:900;color:#2D2D2D;font-size:clamp(44px,5.8vw,80px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;">La cocina<br>de las nonnas.</h2>
-        <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:#2D2D2D;font-size:17px;line-height:1.75;max-width:420px;padding-bottom:6px;">Los platos italianos más icónicos. Cocina bien hecha, muy buena. Hecha por la Nonna para que disfrutes mucho.</p>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:#2D2D2D;font-size:17px;line-height:1.75;max-width:420px;padding-bottom:6px;">Los platos italianos más icónicos. Cocina bien hecha elaborada per tutti por la Nonna. Para que disfrutes mucho.</p>
       </div>
     </div>
 
@@ -468,64 +469,88 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
     <div class="photo-carousel" id="momentos-carousel" aria-label="Momentos y sabores de Little Italy Gastro Fest">
       <div class="photo-carousel-track" id="carrusel-strip">
         <div class="photo-carousel-set">
-          <figure class="carousel-photo" style="--photo-w:220px;--photo-h:276px;--tilt:-3deg;--lift:7px;">
-            <img src="imgs/carousel/pasta-momento.jpeg" alt="Mujer disfrutando de un plato de pasta italiana" loading="lazy">
-            <figcaption>La dolce vita</figcaption>
+          <figure class="carousel-photo" style="--photo-w:240px;--photo-h:250px;--tilt:-3deg;--lift:7px;">
+            <img src="imgs/carousel/imagen01.jpeg" alt="Cannoli italianos rellenos de crema" loading="lazy">
+            <figcaption>Dolce Italia</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:292px;--photo-h:196px;--tilt:2.2deg;--lift:-10px;">
-            <img src="imgs/carousel/panini-mesa.jpeg" alt="Selección de panini italianos sobre una mesa" loading="lazy">
-            <figcaption>Fatto a mano</figcaption>
-          </figure>
-          <figure class="carousel-photo" style="--photo-w:228px;--photo-h:238px;--tilt:-1.4deg;--lift:14px;">
-            <img src="imgs/carousel/panini-plato.jpeg" alt="Panini italiano servido con encurtidos" loading="lazy">
+          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:210px;--tilt:2.2deg;--lift:-10px;">
+            <img src="imgs/carousel/imagen02.jpeg" alt="Mujer disfrutando de un panini italiano" loading="lazy">
             <figcaption>Buon appetito</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:202px;--tilt:3.4deg;--lift:-5px;">
-            <img src="imgs/carousel/panini-artesano.jpg" alt="Panini artesano con tomate, albahaca y queso" loading="lazy">
-            <figcaption>Sapori d'Italia</figcaption>
+          <figure class="carousel-photo" style="--photo-w:230px;--photo-h:280px;--tilt:-1.4deg;--lift:14px;">
+            <img src="imgs/carousel/imagen03.jpeg" alt="Panini artesano con tomate, queso y albahaca" loading="lazy">
+            <figcaption>Fatto a mano</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:218px;--photo-h:272px;--tilt:-2.6deg;--lift:5px;">
-            <img src="imgs/carousel/panini-momento.jpg" alt="Mujer disfrutando de un panini al aire libre" loading="lazy">
-            <figcaption>Un momento italiano</figcaption>
+          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:205px;--tilt:3.4deg;--lift:-5px;">
+            <img src="imgs/carousel/imagen04.jpeg" alt="la Nonna disfrutando de un café italiano" loading="lazy">
+            <figcaption>la Nonna</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:198px;--tilt:1.8deg;--lift:12px;">
-            <img src="imgs/carousel/panini-compartido.jpg" alt="Pareja compartiendo un panini en el festival" loading="lazy">
+          <figure class="carousel-photo" style="--photo-w:250px;--photo-h:255px;--tilt:-2.6deg;--lift:5px;">
+            <img src="imgs/carousel/imagen05.jpeg" alt="Amigos compartiendo pizzas italianas" loading="lazy">
             <figcaption>Meglio insieme</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:238px;--photo-h:238px;--tilt:-3.2deg;--lift:-8px;">
-            <img src="imgs/carousel/tiramisu-clasico.jpg" alt="Tiramisú clásico espolvoreado con cacao" loading="lazy">
+          <figure class="carousel-photo" style="--photo-w:320px;--photo-h:190px;--tilt:1.8deg;--lift:12px;">
+            <img src="imgs/carousel/imagen06.jpeg" alt="Pareja compartiendo un panini en Little Italy" loading="lazy">
+            <figcaption>Amore italiano</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:230px;--photo-h:270px;--tilt:-3.2deg;--lift:-8px;">
+            <img src="imgs/carousel/imagen07.jpeg" alt="Mujer disfrutando de un plato de pasta italiana" loading="lazy">
+            <figcaption>La dolce vita</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:205px;--tilt:2.7deg;--lift:9px;">
+            <img src="imgs/carousel/imagen08.jpeg" alt="Tiramisú italiano espolvoreado con cacao" loading="lazy">
             <figcaption>Dolce finale</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:250px;--photo-h:250px;--tilt:-1.8deg;--lift:-6px;">
+            <img src="imgs/carousel/imagen09.jpeg" alt="Mujer saboreando una focaccia italiana" loading="lazy">
+            <figcaption>Sapori d'Italia</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:210px;--tilt:3deg;--lift:11px;">
+            <img src="imgs/carousel/imagen10.jpeg" alt="Barman preparando un cóctel italiano" loading="lazy">
+            <figcaption>Aperitivo italiano</figcaption>
           </figure>
         </div>
 
         <div class="photo-carousel-set" aria-hidden="true">
-          <figure class="carousel-photo" style="--photo-w:220px;--photo-h:276px;--tilt:-3deg;--lift:7px;">
-            <img src="imgs/carousel/pasta-momento.jpeg" alt="" loading="lazy">
-            <figcaption>La dolce vita</figcaption>
+          <figure class="carousel-photo" style="--photo-w:240px;--photo-h:250px;--tilt:-3deg;--lift:7px;">
+            <img src="imgs/carousel/imagen01.jpeg" alt="" loading="lazy">
+            <figcaption>Dolce Italia</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:292px;--photo-h:196px;--tilt:2.2deg;--lift:-10px;">
-            <img src="imgs/carousel/panini-mesa.jpeg" alt="" loading="lazy">
-            <figcaption>Fatto a mano</figcaption>
-          </figure>
-          <figure class="carousel-photo" style="--photo-w:228px;--photo-h:238px;--tilt:-1.4deg;--lift:14px;">
-            <img src="imgs/carousel/panini-plato.jpeg" alt="" loading="lazy">
+          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:210px;--tilt:2.2deg;--lift:-10px;">
+            <img src="imgs/carousel/imagen02.jpeg" alt="" loading="lazy">
             <figcaption>Buon appetito</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:202px;--tilt:3.4deg;--lift:-5px;">
-            <img src="imgs/carousel/panini-artesano.jpg" alt="" loading="lazy">
-            <figcaption>Sapori d'Italia</figcaption>
+          <figure class="carousel-photo" style="--photo-w:230px;--photo-h:280px;--tilt:-1.4deg;--lift:14px;">
+            <img src="imgs/carousel/imagen03.jpeg" alt="" loading="lazy">
+            <figcaption>Fatto a mano</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:218px;--photo-h:272px;--tilt:-2.6deg;--lift:5px;">
-            <img src="imgs/carousel/panini-momento.jpg" alt="" loading="lazy">
-            <figcaption>Un momento italiano</figcaption>
+          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:205px;--tilt:3.4deg;--lift:-5px;">
+            <img src="imgs/carousel/imagen04.jpeg" alt="" loading="lazy">
+            <figcaption>la Nonna</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:198px;--tilt:1.8deg;--lift:12px;">
-            <img src="imgs/carousel/panini-compartido.jpg" alt="" loading="lazy">
+          <figure class="carousel-photo" style="--photo-w:250px;--photo-h:255px;--tilt:-2.6deg;--lift:5px;">
+            <img src="imgs/carousel/imagen05.jpeg" alt="" loading="lazy">
             <figcaption>Meglio insieme</figcaption>
           </figure>
-          <figure class="carousel-photo" style="--photo-w:238px;--photo-h:238px;--tilt:-3.2deg;--lift:-8px;">
-            <img src="imgs/carousel/tiramisu-clasico.jpg" alt="" loading="lazy">
+          <figure class="carousel-photo" style="--photo-w:320px;--photo-h:190px;--tilt:1.8deg;--lift:12px;">
+            <img src="imgs/carousel/imagen06.jpeg" alt="" loading="lazy">
+            <figcaption>Amore italiano</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:230px;--photo-h:270px;--tilt:-3.2deg;--lift:-8px;">
+            <img src="imgs/carousel/imagen07.jpeg" alt="" loading="lazy">
+            <figcaption>La dolce vita</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:300px;--photo-h:205px;--tilt:2.7deg;--lift:9px;">
+            <img src="imgs/carousel/imagen08.jpeg" alt="" loading="lazy">
             <figcaption>Dolce finale</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:250px;--photo-h:250px;--tilt:-1.8deg;--lift:-6px;">
+            <img src="imgs/carousel/imagen09.jpeg" alt="" loading="lazy">
+            <figcaption>Sapori d'Italia</figcaption>
+          </figure>
+          <figure class="carousel-photo" style="--photo-w:310px;--photo-h:210px;--tilt:3deg;--lift:11px;">
+            <img src="imgs/carousel/imagen10.jpeg" alt="" loading="lazy">
+            <figcaption>Aperitivo italiano</figcaption>
           </figure>
         </div>
       </div>
@@ -550,7 +575,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 
       <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:rgba(232,220,203,0.75);font-size:17px;line-height:1.8;max-width:660px;margin-bottom:16px;" class="fade-in">Dos jornadas, un mismo espíritu. Pasta fresca, pizza al taglio, mucha gastronomía italiana, coctelería icónica, música en directo, shows que no te esperas y el sorteo de un viaje a Roma para 2 personas.</p>
       <p style="font-family:'Montserrat',sans-serif;font-weight:400;color:rgba(232,220,203,0.75);font-size:17px;line-height:1.8;max-width:660px;margin-bottom:18px;" class="fade-in">El 27 y el 28 de agosto de 2026, la Plaza de Toros de Torremolinos se convierte en la piazza más animada del verano. Puedes venir una noche o quedarte con las dos. Lo único que no recomendamos es no venir.</p>
-      <p style="font-family:'Montserrat',sans-serif;font-weight:600;color:#F7F1E7;font-size:15px;line-height:1.75;max-width:760px;margin-bottom:48px;" class="fade-in"><strong>La entrada incluye:</strong> acceso al recinto y a las zonas comunes, música en directo, shows y una participación para el sorteo de un viaje a Roma para 2 personas. La gastronomía se compra aparte.</p>
+      <p style="font-family:'Montserrat',sans-serif;font-weight:600;color:#F7F1E7;font-size:15px;line-height:1.75;max-width:760px;margin-bottom:48px;" class="fade-in"><strong>La entrada incluye:</strong> acceso al recinto y a las zonas comunes, música en directo, shows y una participación para el sorteo de un viaje a Roma para 2 personas.</p>
 
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px;" class="fade-in">
         <div style="border:1px solid rgba(232,220,203,0.18);padding:16px 24px;">
@@ -723,7 +748,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 
       <div style="flex:1;">
         <div style="margin-bottom:18px;">
-          <img class="footer-brand-logo" src="imgs/logo-little-italy.png" alt="Little Italy Gastro Fest">
+          <img class="footer-brand-logo" src="imgs/logo-little-italy-footer.png" alt="Little Italy Gastro Fest">
         </div>
         <p style="font-family:'Montserrat',sans-serif;font-weight:800;color:#E8DCCB;font-size:15px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">La gran fiesta mediterránea del verano.</p>
         <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:rgba(247,241,231,0.76);">27 y 28 de agosto de 2026 · Torremolinos · Plaza de Toros</p>
