@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Ya tienes tu entrada! | Little Italy Gastro Fest 2026</title>
+  <meta name="description" content="Confirmación de compra de entrada para Little Italy Gastro Fest 2026, Torremolinos.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F7F1E7;
+      --cream-soft: #FBF7F1;
+      --beige: #E8DCCB;
+      --orange: #E3A337;
+      --red: #D6402B;
+      --green: #2F5D4C;
+      --ink: #2D2D2D;
+      --line: #E5DED2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--ink); overflow: hidden; }
+    .bg-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; filter: brightness(0.55) blur(2px); pointer-events: none; }
+    .overlay { position: fixed; inset: 0; background: rgba(45,45,45,0.55); display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 10; }
+    .modal { position: relative; width: min(680px, 92vw); background: var(--cream-soft); border: 2px solid var(--ink); box-shadow: 10px 10px 0 rgba(45,45,45,0.28); padding: 10px; }
+    .modal img { display: block; width: 100%; height: auto; }
+    .modal-close { position: absolute; top: -16px; right: -16px; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--cream); border: 2px solid var(--cream-soft); font-size: 20px; font-weight: 800; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s ease, background 0.2s ease; }
+    .modal-close:hover { background: var(--red); transform: scale(1.08); }
+    .modal-fallback { margin-top: 14px; text-align: center; }
+    .modal-fallback a { color: var(--cream); font-weight: 700; text-decoration: underline; }
+    @media (max-width: 560px) {
+      .modal { width: 94vw; }
+      .modal-close { top: -14px; right: -14px; width: 34px; height: 34px; font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <iframe class="bg-frame" src="../index.html" title="Little Italy Gastro Fest" tabindex="-1" aria-hidden="true"></iframe>
+
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Confirmación de entrada conseguida">
+    <div class="modal">
+      <button class="modal-close" id="closeBtn" aria-label="Cerrar y volver a la web" type="button">&times;</button>
+      <img src="../imgs/banner-gracias.jpg" alt="¡Ya tienes tu entrada! Gracias por unirte a Little Italy Gastro Fest 2026.">
+      <noscript>
+        <p class="modal-fallback"><a href="../index.html">Volver a la web</a></p>
+      </noscript>
+    </div>
+  </div>
+
+  <script>
+    function goHome() { window.location.href = '../index.html'; }
+    document.getElementById('closeBtn').addEventListener('click', goHome);
+    document.getElementById('overlay').addEventListener('click', function (e) {
+      if (e.target === this) goHome();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') goHome();
+    });
+  </script>
+
+</body>
+</html>
