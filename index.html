@@ -136,10 +136,17 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 
 /* Spotify soundtrack banner */
 .spotify-banner-section { background:#F7F1E7; padding:clamp(42px,6vw,76px) clamp(18px,6vw,80px); overflow:hidden; }
-.spotify-banner { display:block; width:min(100%,1193px); margin:0 auto; border:2px solid #2D2D2D; background:#E8DCCB; box-shadow:12px 12px 0 #2F5D4C; transform:rotate(-0.2deg); transition:transform .25s ease,box-shadow .25s ease; }
+.spotify-banner { display:block; width:min(100%,1193px); margin:0 auto; border:2px solid #2D2D2D; background:#E8DCCB; box-shadow:12px 12px 0 #2F5D4C; transform:rotate(-0.2deg); transition:transform .25s ease,box-shadow .25s ease; will-change:transform; }
 .spotify-banner img { display:block; width:100%; height:auto; }
-.spotify-banner:hover { transform:rotate(0) translateY(-4px); box-shadow:15px 16px 0 #D6402B; }
+.spotify-banner:hover,.spotify-banner.is-vibrating { box-shadow:15px 16px 0 #D6402B; animation:spotifyShake .24s linear infinite; }
 .spotify-banner:focus-visible { outline:4px solid #D6402B; outline-offset:5px; transform:rotate(0); }
+@keyframes spotifyShake { 0%,100% { transform:translate(0,0) rotate(-.2deg); } 20% { transform:translate(-4px,1px) rotate(-.45deg); } 40% { transform:translate(3px,-2px) rotate(.35deg); } 60% { transform:translate(-2px,2px) rotate(-.3deg); } 80% { transform:translate(4px,-1px) rotate(.4deg); } }
+.ticket-purchase-button { will-change:transform; }
+.ticket-purchase-button:hover,.ticket-purchase-button.is-vibrating { animation:spotifyShake .24s linear infinite !important; box-shadow:0 12px 40px rgba(214,64,43,.55) !important; }
+@media (prefers-reduced-motion: reduce) {
+  .spotify-banner:hover,.spotify-banner.is-vibrating { animation:none; transform:rotate(0) translateY(-3px); }
+  .ticket-purchase-button:hover,.ticket-purchase-button.is-vibrating { animation:none !important; transform:translateY(-3px) !important; }
+}
 
 @media (max-width: 768px) {
   .nav-links { display: none !important; }
@@ -643,7 +650,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
       <!-- Ticketing placeholder -->
       <!-- CTA Entradas animado -->
       <div style="margin-top:8px;text-align:center;" class="fade-in">
-        <a href="https://zibarit.com/s/l8Nl9V" target="_blank" rel="noopener noreferrer" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(100deg,#D6402B 0%,#c4461f 40%,#E8DCCB 60%,#D6402B 100%);background-size:300% auto;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:0.14em;text-transform:uppercase;padding:clamp(18px,2.5vw,26px) clamp(40px,6vw,80px);text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;cursor:pointer;">
+        <a href="https://zibarit.com/s/l8Nl9V" target="_blank" rel="noopener noreferrer" class="btn-cta-anim ticket-purchase-button" style="display:inline-flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(100deg,#D6402B 0%,#c4461f 40%,#E8DCCB 60%,#D6402B 100%);background-size:300% auto;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:0.14em;text-transform:uppercase;padding:clamp(18px,2.5vw,26px) clamp(40px,6vw,80px);text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;cursor:pointer;">
           <!-- Shimmer layer -->
           <span style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.18) 50%,transparent 65%);background-size:300% auto;animation:btnShimmer 3s linear infinite;pointer-events:none;"></span>
           <!-- Arrow left decorative -->
@@ -1240,6 +1247,17 @@ document.querySelectorAll('[data-legal-policy]').forEach(function(link) {
     event.preventDefault();
     openLegalPolicy(link.getAttribute('data-legal-policy'), link);
   });
+});
+
+document.querySelectorAll('.spotify-banner, .ticket-purchase-button').forEach(function(vibratingElement) {
+  vibratingElement.addEventListener('pointerdown', function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    vibratingElement.classList.remove('is-vibrating');
+    void vibratingElement.offsetWidth;
+    vibratingElement.classList.add('is-vibrating');
+    window.setTimeout(function() { vibratingElement.classList.remove('is-vibrating'); }, 480);
+    if ('vibrate' in navigator) navigator.vibrate([45, 25, 45]);
+  }, { passive: true });
 });
 
 document.getElementById('cookie-dismiss').addEventListener('click', dismissCookieNotice);
