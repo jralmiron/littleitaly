@@ -135,10 +135,9 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 .lang-item span { font-family:'Montserrat',sans-serif; font-weight:800; font-size:8px; letter-spacing:0.12em; color:var(--ink); text-transform:uppercase; line-height:1; }
 
 /* ── Fixed Spotify button ──────────────────────────────── */
-.spotify-fixed { --spotify-size:clamp(62px,7vw,88px); position:fixed; left:16px; bottom:58px; z-index:97; width:var(--spotify-size); aspect-ratio:560/647; display:grid; place-items:center; text-decoration:none; transform:rotate(-2deg); filter:drop-shadow(0 9px 12px rgba(45,45,45,.3)); transition:bottom .3s ease,transform .3s ease,filter .3s ease; }
+.spotify-fixed { --spotify-size:58px; position:fixed; left:8px; bottom:52px; z-index:97; width:var(--spotify-size); aspect-ratio:560/647; display:grid; place-items:center; text-decoration:none; transform:rotate(-2deg); filter:drop-shadow(0 9px 12px rgba(45,45,45,.3)); transition:bottom .3s ease,transform .3s ease,filter .3s ease; }
 .spotify-fixed__video { position:relative; z-index:1; display:block; width:100%; height:100%; object-fit:contain; pointer-events:none; }
 .spotify-fixed__halo { position:absolute; width:70%; aspect-ratio:1; border-radius:50%; background:#39db78; opacity:.12; filter:blur(20px); animation:spotifyBreathe 2.8s ease-in-out infinite; }
-.spotify-fixed__label { position:absolute; z-index:2; right:-2px; bottom:3%; padding:4px 5px; border:1px solid rgba(57,219,120,.72); color:#F7F1E7; background:rgba(45,45,45,.9); font-family:'Montserrat',sans-serif; font-size:4px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; white-space:nowrap; }
 .spotify-fixed:hover,.spotify-fixed:focus-visible { transform:rotate(0) scale(1.06); filter:drop-shadow(0 16px 24px rgba(45,45,45,.42)); outline:none; }
 .spotify-fixed:focus-visible { border-radius:50%; box-shadow:0 0 0 3px #39db78; }
 @keyframes spotifyBreathe { 50% { opacity:.22; transform:scale(1.08); } }
@@ -169,7 +168,6 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
   .menores-grid { grid-template-columns: 1fr !important; }
   .lang-selector { display:none !important; }
   .spotify-fixed { --spotify-size:58px; left:8px; bottom:52px; }
-  .spotify-fixed__label { display:none; }
   .photo-carousel { height: 275px; margin-top: 36px; }
   .photo-carousel::before, .photo-carousel::after { width: 42px; }
   .photo-carousel-set { gap: 16px; padding: 28px 16px 28px 0; }
@@ -322,7 +320,6 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
     <video class="spotify-fixed__video" autoplay muted loop playsinline disablepictureinpicture poster="../imgs/spotify/disco-spotify-poster.png" aria-hidden="true">
       <source src="../imgs/spotify/disco-spotify.webm" type="video/webm">
     </video>
-    <span class="spotify-fixed__label">Listen on Spotify ↗</span>
   </a>
 
   <!-- ============================================================ -->
