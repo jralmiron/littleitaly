@@ -134,13 +134,12 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
 .lang-item img { width:22px; height:22px; object-fit:contain; display:block; }
 .lang-item span { font-family:'Montserrat',sans-serif; font-weight:800; font-size:8px; letter-spacing:0.12em; color:var(--ink); text-transform:uppercase; line-height:1; }
 
-/* ── Fixed Spotify button ──────────────────────────────── */
-.spotify-fixed { --spotify-size:58px; position:fixed; left:8px; bottom:52px; z-index:97; width:var(--spotify-size); aspect-ratio:560/647; display:grid; place-items:center; text-decoration:none; transform:rotate(-2deg); filter:drop-shadow(0 9px 12px rgba(45,45,45,.3)); transition:bottom .3s ease,transform .3s ease,filter .3s ease; }
-.spotify-fixed__video { position:relative; z-index:1; display:block; width:100%; height:100%; object-fit:contain; pointer-events:none; }
-.spotify-fixed__halo { position:absolute; width:70%; aspect-ratio:1; border-radius:50%; background:#39db78; opacity:.12; filter:blur(20px); animation:spotifyBreathe 2.8s ease-in-out infinite; }
-.spotify-fixed:hover,.spotify-fixed:focus-visible { transform:rotate(0) scale(1.06); filter:drop-shadow(0 16px 24px rgba(45,45,45,.42)); outline:none; }
-.spotify-fixed:focus-visible { border-radius:50%; box-shadow:0 0 0 3px #39db78; }
-@keyframes spotifyBreathe { 50% { opacity:.22; transform:scale(1.08); } }
+/* Spotify soundtrack banner */
+.spotify-banner-section { background:#F7F1E7; padding:clamp(42px,6vw,76px) clamp(18px,6vw,80px); overflow:hidden; }
+.spotify-banner { display:block; width:min(100%,1193px); margin:0 auto; border:2px solid #2D2D2D; background:#E8DCCB; box-shadow:12px 12px 0 #2F5D4C; transform:rotate(-0.2deg); transition:transform .25s ease,box-shadow .25s ease; }
+.spotify-banner img { display:block; width:100%; height:auto; }
+.spotify-banner:hover { transform:rotate(0) translateY(-4px); box-shadow:15px 16px 0 #D6402B; }
+.spotify-banner:focus-visible { outline:4px solid #D6402B; outline-offset:5px; transform:rotate(0); }
 
 @media (max-width: 768px) {
   .nav-links { display: none !important; }
@@ -167,7 +166,8 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
   .two-col-form { grid-template-columns: 1fr !important; }
   .menores-grid { grid-template-columns: 1fr !important; }
   .lang-selector { display:none !important; }
-  .spotify-fixed { --spotify-size:58px; left:8px; bottom:52px; }
+  .spotify-banner-section { padding:34px 14px 38px; }
+  .spotify-banner { border-width:1px; box-shadow:6px 7px 0 #2F5D4C; }
   .photo-carousel { height: 275px; margin-top: 36px; }
   .photo-carousel::before, .photo-carousel::after { width: 42px; }
   .photo-carousel-set { gap: 16px; padding: 28px 16px 28px 0; }
@@ -221,7 +221,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
         <span>EN</span>
       </a>
     </div>
-    <a href="https://site.fourvenues.com/es/locamente-creative/events/little-italy--festival-gastronomico-italiano---torremolinos---plaza-paraiso-27-08-2026-4GAP" target="_blank" rel="noopener noreferrer" class="btn-r" style="background:#D6402B;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:11px 22px;display:inline-flex;align-items:center;transition:background 0.2s,transform 0.2s;white-space:nowrap;">Entradas</a>
+    <a href="#entradas" class="btn-r" style="background:#D6402B;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:11px 22px;display:inline-flex;align-items:center;transition:background 0.2s,transform 0.2s;white-space:nowrap;">Entradas</a>
     <button class="hamburger-btn" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;align-items:center;display:none;" aria-label="Abrir menú">
       <span style="display:block;width:24px;height:2px;background:#2D2D2D;"></span>
       <span style="display:block;width:18px;height:2px;background:#2D2D2D;"></span>
@@ -243,7 +243,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
     </a>
   </div>
   <div style="margin-top:auto;padding-top:32px;">
-    <a href="https://site.fourvenues.com/es/locamente-creative/events/little-italy--festival-gastronomico-italiano---torremolinos---plaza-paraiso-27-08-2026-4GAP" target="_blank" rel="noopener noreferrer" onclick="closeMenu()" class="btn-r" style="display:flex;align-items:center;justify-content:center;background:#D6402B;color:#F7F1E7;font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:0.1em;text-transform:uppercase;padding:22px;transition:background 0.2s;">Entradas</a>
+    <a href="#entradas" onclick="closeMenu()" class="btn-r" style="display:flex;align-items:center;justify-content:center;background:#D6402B;color:#F7F1E7;font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:0.1em;text-transform:uppercase;padding:22px;transition:background 0.2s;">Entradas</a>
   </div>
 </div>
 
@@ -280,14 +280,14 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
             <div style="font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(45,45,45,0.58);text-transform:uppercase;letter-spacing:0.12em;margin-top:1px;">Torremolinos, Málaga</div>
           </div>
           <div style="border:1px solid #E5DED2;padding:8px 16px;display:inline-block;">
-            <div style="font-family:'Montserrat',sans-serif;font-weight:800;color:#2D2D2D;font-size:17px;">19:00 — 01:00 h</div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;color:#2D2D2D;font-size:17px;">De 19:00 h a cierre</div>
             <div style="font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(45,45,45,0.58);text-transform:uppercase;letter-spacing:0.12em;margin-top:1px;">Cada jornada</div>
           </div>
         </div>
 
         <div>
           <div style="display:flex;flex-wrap:wrap;gap:14px;">
-            <a href="https://site.fourvenues.com/es/locamente-creative/events/little-italy--festival-gastronomico-italiano---torremolinos---plaza-paraiso-27-08-2026-4GAP" target="_blank" rel="noopener noreferrer" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(100deg,#D6402B 0%,#b93222 45%,#D6402B 100%);background-size:300% auto;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:900;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;padding:18px 36px;text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;white-space:nowrap;">
+            <a href="#entradas" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(100deg,#D6402B 0%,#b93222 45%,#D6402B 100%);background-size:300% auto;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:900;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;padding:18px 36px;text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;white-space:nowrap;">
               <span style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.18) 50%,transparent 65%);background-size:300% auto;animation:btnShimmer 3s linear infinite;pointer-events:none;"></span>
               <span style="position:relative;z-index:1;">Comprar entradas</span>
             </a>
@@ -315,12 +315,6 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
     </div>
   </div>
 
-  <a class="spotify-fixed" href="https://open.spotify.com/playlist/23IVjfddZ25JnvI5b4YDaf?si=CLZO9AlTRRyoOOmse913Dw&amp;pi=fha04nNAQFSI9" target="_blank" rel="noopener noreferrer" aria-label="Escuchar la playlist de Little Italy en Spotify">
-    <span class="spotify-fixed__halo" aria-hidden="true"></span>
-    <video class="spotify-fixed__video" autoplay muted loop playsinline disablepictureinpicture poster="imgs/spotify/disco-spotify-poster.png" aria-hidden="true">
-      <source src="imgs/spotify/disco-spotify.webm" type="video/webm">
-    </video>
-  </a>
 
   <!-- ============================================================ -->
   <!-- EL FESTIVAL                                                   -->
@@ -628,7 +622,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
           <div style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(232,220,203,0.5);text-transform:uppercase;letter-spacing:0.12em;">Dos jornadas</div>
         </div>
         <div style="border:1px solid rgba(232,220,203,0.18);padding:16px 24px;">
-          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#F7F1E7;font-size:22px;margin-bottom:3px;">19:00 — 01:00 h</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:900;color:#F7F1E7;font-size:22px;margin-bottom:3px;">De 19:00 h a cierre</div>
           <div style="font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(232,220,203,0.5);text-transform:uppercase;letter-spacing:0.12em;">Cada jornada</div>
         </div>
         <div style="border:1px solid rgba(232,220,203,0.18);padding:16px 24px;">
@@ -649,7 +643,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
       <!-- Ticketing placeholder -->
       <!-- CTA Entradas animado -->
       <div style="margin-top:8px;text-align:center;" class="fade-in">
-        <a href="https://site.fourvenues.com/es/locamente-creative/events/little-italy--festival-gastronomico-italiano---torremolinos---plaza-paraiso-27-08-2026-4GAP" target="_blank" rel="noopener noreferrer" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(100deg,#D6402B 0%,#c4461f 40%,#E8DCCB 60%,#D6402B 100%);background-size:300% auto;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:0.14em;text-transform:uppercase;padding:clamp(18px,2.5vw,26px) clamp(40px,6vw,80px);text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;cursor:pointer;">
+        <a href="https://zibarit.com/s/l8Nl9V" target="_blank" rel="noopener noreferrer" class="btn-cta-anim" style="display:inline-flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(100deg,#D6402B 0%,#c4461f 40%,#E8DCCB 60%,#D6402B 100%);background-size:300% auto;color:#F7F1E7;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(15px,1.6vw,20px);letter-spacing:0.14em;text-transform:uppercase;padding:clamp(18px,2.5vw,26px) clamp(40px,6vw,80px);text-decoration:none;transition:transform 0.3s ease,box-shadow 0.3s ease;position:relative;overflow:hidden;cursor:pointer;">
           <!-- Shimmer layer -->
           <span style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.18) 50%,transparent 65%);background-size:300% auto;animation:btnShimmer 3s linear infinite;pointer-events:none;"></span>
           <!-- Arrow left decorative -->
@@ -665,6 +659,13 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
   <!-- ============================================================ -->
   <!-- POLÍTICA DE MENORES                                           -->
   <!-- ============================================================ -->
+  <!-- BANDA SONORA / SPOTIFY -->
+  <section id="spotify-playlist" class="spotify-banner-section" data-screen-label="Banda sonora de Little Italy">
+    <a class="spotify-banner" href="https://open.spotify.com/playlist/23IVjfddZ25JnvI5b4YDaf?si=CLZO9AlTRRyoOOmse913Dw&amp;pi=fha04nNAQFSI9" target="_blank" rel="noopener noreferrer" aria-label="Escuchar la playlist oficial de Little Italy en Spotify">
+      <img src="imgs/spotify/spotify-banner.webp" alt="La banda sonora de Little Italy &middot; Escucha nuestra playlist en Spotify" width="1193" height="282" loading="lazy">
+    </a>
+  </section>
+
   <section data-screen-label="Política de Menores" style="background:#E8DCCB;">
     <div class="section-pad" style="padding:80px 80px;">
 
@@ -803,6 +804,7 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: #2F5D4C
         <div style="display:flex;flex-direction:column;gap:12px;">
           <a href="mailto:hola@somosgastronomico.com" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#E8DCCB;transition:color 0.2s;">hola@somosgastronomico.com</a>
           <a href="https://instagram.com/littleitaly_gastrofest" target="_blank" rel="noopener noreferrer" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#E8DCCB;transition:color 0.2s;">@littleitaly_gastrofest</a>
+          <a href="https://instagram.com/plazaparaisotorremolinos" target="_blank" rel="noopener noreferrer" style="font-family:'Montserrat',sans-serif;font-size:14px;color:#E8DCCB;transition:color 0.2s;">@plazaparaisotorremolinos</a>
           <a href="#contacto" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#D6402B;transition:opacity 0.2s;">Ir a contacto →</a>
         </div>
       </div>
@@ -1196,20 +1198,9 @@ document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el
 // ── Aviso técnico y políticas legales ─────────────────────
 var legalTrigger = null;
 
-function syncSpotifyOffset() {
-  var notice = document.getElementById('cookie-notice');
-  var spotify = document.querySelector('.spotify-fixed');
-  if (!notice || !spotify) return;
-  if (notice.classList.contains('is-visible')) {
-    spotify.style.bottom = Math.ceil(window.innerHeight - notice.getBoundingClientRect().top + 10) + 'px';
-  } else {
-    spotify.style.bottom = '';
-  }
-}
 
 function dismissCookieNotice() {
   document.getElementById('cookie-notice').classList.remove('is-visible');
-  syncSpotifyOffset();
 }
 
 function openLegalPolicy(policy, trigger) {
@@ -1252,8 +1243,6 @@ document.querySelectorAll('[data-legal-policy]').forEach(function(link) {
 });
 
 document.getElementById('cookie-dismiss').addEventListener('click', dismissCookieNotice);
-document.getElementById('cookie-notice').addEventListener('animationend', syncSpotifyOffset);
-window.addEventListener('resize', syncSpotifyOffset);
 document.getElementById('legal-dialog-close').addEventListener('click', closeLegalPolicy);
 document.getElementById('legal-dialog').addEventListener('click', function(event) {
   if (event.target === event.currentTarget) closeLegalPolicy();
@@ -1261,7 +1250,6 @@ document.getElementById('legal-dialog').addEventListener('click', function(event
 
 window.setTimeout(function() {
   document.getElementById('cookie-notice').classList.add('is-visible');
-  syncSpotifyOffset();
 }, 650);
 </script>
 </body>
